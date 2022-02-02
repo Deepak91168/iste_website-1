@@ -58,7 +58,8 @@ const Flex = styled.div`
     background-color: rgba(196, 196, 196, 0.14);
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
-    width: 50%;
+    width: 40%;
+    position:fixed;
     text-align: center;
     height: 77vh;
     overflow: hidden;
@@ -105,7 +106,7 @@ const Flex = styled.div`
         background:black;
         text-align:center;
         background: rgb(0, 41, 107);
-        mix-blend-mode: darken;
+        mix-blend-mode: darken; 
         box-shadow: 8px 8px 20px 5px rgba(0, 0, 0, 0.5);
         @media screen and (max-width:1177px){
           margin-top:10vw;
@@ -113,6 +114,9 @@ const Flex = styled.div`
           box-shadow: none;
           display:flex;
           padding:4vw 2vw;
+        }
+	@media screen and (max-width:450px){
+          display:block;
         }
         h1{
           color: rgb(189, 189, 189);
@@ -133,6 +137,10 @@ const Flex = styled.div`
             width:50%;
             text-align:left;
           }
+	  @media screen and (max-width:450px){
+            width:100%;
+	    text-align:center;
+          }
         }
         .after1177{
           flex:none;
@@ -141,6 +149,10 @@ const Flex = styled.div`
           @media screen and (max-width:1177px){
             display:block;
             text-align:right;
+          }
+	  @media screen and (max-width:450px){
+            width:100%;
+            text-align:center;
           }
         }
       }
@@ -153,7 +165,10 @@ const Flex = styled.div`
         border-radius:30px 0 30px 30px;
         left:20%;
         display:flex;
-        .selected_member_img{
+        @media screen and (max-width:590px){
+	  display:none;
+	}
+	.selected_member_img{
           position:absolute;
           top:0px;
           left:0px;
@@ -219,12 +234,13 @@ const Flex = styled.div`
 export default function Members() {
   const data = useStaticQuery(graphql`
     query {
-      allMembersXlsxSheet1(sort: { fields: name, order: ASC }) {
+     allMembersXlsxSheet1(sort: { fields: name, order: ASC }) {
         edges {
           node {
             name
             description
             link
+            image_link
             img {
               childImageSharp {
                 fluid {
@@ -232,9 +248,14 @@ export default function Members() {
                 }
               }
             }
+            branch
+            city
+            state
+            about
           }
         }
       }
+ 
 
       allMembersXlsxSheet2(sort: { fields: name, order: ASC }) {
         edges {
@@ -264,6 +285,7 @@ export default function Members() {
             name
             description
             link
+            image_link
             img {
               childImageSharp {
                 fluid {
@@ -271,16 +293,20 @@ export default function Members() {
                 }
               }
             }
+            branch
+            city
+            state
+            about
           }
         }
       }
-
-      allMembersXlsxSheet4(sort: { fields: name, order: ASC }) {
+     allMembersXlsxSheet4(sort: { fields: name, order: ASC }) {
         edges {
           node {
             name
             description
             link
+            image_link
             img {
               childImageSharp {
                 fluid {
@@ -288,6 +314,10 @@ export default function Members() {
                 }
               }
             }
+            branch
+            city
+            state
+            about
           }
         }
       }
@@ -297,8 +327,43 @@ export default function Members() {
   const onFocus = {
     filter: "blur(10px)",
     opacity: 0.5,
-    transition:'0.3s ease-in-out',
+    transition: '0.3s ease-in-out',
   }
+
+  const seeScroll = {}
+
+  const [scrollDir, setScrollDir] = useState("scrolling down");
+
+  useEffect(() => {
+    const threshold = 0;
+    let lastScrollY = window.pageYOffset;
+    let ticking = false;
+
+    const updateScrollDir = () => {
+      const scrollY = window.pageYOffset;
+
+      if (Math.abs(scrollY - lastScrollY) < threshold) {
+        ticking = false;
+        return;
+      }
+      setScrollDir(scrollY > lastScrollY ? "scrolling down" : "scrolling up");
+      lastScrollY = scrollY > 0 ? scrollY : 0;
+      ticking = false;
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateScrollDir);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", onScroll);
+    console.log(scrollDir);
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [scrollDir]);
+
 
   const [name, setName] = useState("Albert Sharma")
   const [desc, setDesc] = useState("Executive Member")
@@ -405,30 +470,30 @@ export default function Members() {
     )
   }
 
-  function Instagram(){
-    return(
+  function Instagram() {
+    return (
       <svg
-                    aria-hidden="true"
-                    focusable="false"
-                    data-prefix="fab"
-                    height="30px"
-                    data-icon="linkedin"
-                    class="svg-inline--fa fa-linkedin fa-w-14 fa-1x "
-                    role="img"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 448 512"
-                  >
-                    <path
-                      fill="#fff"
-                      d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"
-                    ></path>
-                  </svg>
+        aria-hidden="true"
+        focusable="false"
+        data-prefix="fab"
+        height="30px"
+        data-icon="linkedin"
+        class="svg-inline--fa fa-linkedin fa-w-14 fa-1x "
+        role="img"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 448 512"
+      >
+        <path
+          fill="#fff"
+          d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"
+        ></path>
+      </svg>
     )
   }
 
 
-  function Linkedin(){
-    return(
+  function Linkedin() {
+    return (
       <svg
         aria-hidden="true"
         focusable="false"
@@ -440,11 +505,11 @@ export default function Members() {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 448 512"
       >
-      <path
-        fill="#fff"
-        d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
-      ></path>
-    </svg>
+        <path
+          fill="#fff"
+          d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+        ></path>
+      </svg>
     )
   }
   const myContainer = useRef(null)
@@ -455,78 +520,312 @@ export default function Members() {
 
   return (
     <>
-      <Flex>
-        <div className="year">
-          <h1>SECOND YEAR</h1>
-        </div>
-        <div className="left-container container">
-          {data.allMembersXlsxSheet2.edges.map((row, i) => (
-            i!=key?(<Member_Card
-              className="Card"
-              key={i}
-              id={i}
-              ref={myContainer}
-              data-key={i}
-              name={row.node.name}
-              style={mouse}
-              data-description={row.node.description}
-              data-img={row.node.image_link}
-              data-linkedin={row.node.link}
-              data-name={row.node.name}
-              data-branch={row.node.branch}
-              data-city={row.node.city}
-              data-state={row.node.state}
-              data-about={row.node.about}
-              onMouseOver={ReadName}
-              onMouseOut={mouseOut}
-            >
-              <Img fluid={row.node.img.childImageSharp.fluid}></Img>
-              <div className="content" style={{ color: "white" }}>
-                <div className="name">{row.node.name}</div>
-              </div>
-              {/* </Link> */}
-            </Member_Card>):(<Member_Card
-              className="Card"
-              key={i}
-              id={i}
-              ref={myContainer}
-              data-key={i}
-              style={{cursor:'pointer',transition:'0.3s ease-in-out',transform:'scale(1.0)'}}
-              name={row.node.name}
-              data-description={row.node.description}
-              data-img={row.node.image_link}
-              data-linkedin={row.node.link}
-              data-name={row.node.name}
-              data-branch={row.node.branch}
-              data-city={row.node.city}
-              data-state={row.node.state}
-              data-about={row.node.about}
-              onMouseOver={ReadName}
-              onMouseOut={mouseOut}
-            >
-              <Img fluid={row.node.img.childImageSharp.fluid}></Img>
-              <div className="content" style={{ color: "white" }}>
-                <div className="name">{row.node.name}</div>
-              </div>
-              {/* </Link> */}
-            </Member_Card>)
-            
-          ))}
-        </div>
-        <div className="right-container container">
-          <Selected_member
-            name={name}
-            desc={desc}
-            img={img}
-            linkedin={linkedin}
-            branch={branch}
-            city={city}
-            state={state}
-            about={about}
-          />
-        </div>
-        {/* </div> */}
-      </Flex>
+      <div className="mainContainer" id="1" style={seeScroll}>
+        <Flex>
+          <div className="year">
+            <h1>FINAL YEAR</h1>
+          </div>
+          <div className="left-container container">
+            {data.allMembersXlsxSheet4.edges.map((row, i) => (
+              i != key ? (<Member_Card
+                className="Card"
+                key={i}
+                id={i}
+                ref={myContainer}
+                data-key={i}
+                name={row.node.name}
+                style={mouse}
+                data-description={row.node.description}
+                data-img={row.node.image_link}
+                data-linkedin={row.node.link}
+                data-name={row.node.name}
+                data-branch={row.node.branch}
+                data-city={row.node.city}
+                data-state={row.node.state}
+                data-about={row.node.about}
+                onMouseOver={ReadName}
+                onMouseOut={mouseOut}
+              >
+                <Img fluid={row.node.img.childImageSharp.fluid}></Img>
+                <div className="content" style={{ color: "white" }}>
+                  <div className="name">{row.node.name}</div>
+                </div>
+                {/* </Link> */}
+              </Member_Card>) : (<Member_Card
+                className="Card"
+                key={i}
+                id={i}
+                ref={myContainer}
+                data-key={i}
+                style={{ cursor: 'pointer', transition: '0.3s ease-in-out', transform: 'scale(1.0)' }}
+                name={row.node.name}
+                data-description={row.node.description}
+                data-img={row.node.image_link}
+                data-linkedin={row.node.link}
+                data-name={row.node.name}
+                data-branch={row.node.branch}
+                data-city={row.node.city}
+                data-state={row.node.state}
+                data-about={row.node.about}
+                onMouseOver={ReadName}
+                onMouseOut={mouseOut}
+              >
+                <Img fluid={row.node.img.childImageSharp.fluid}></Img>
+                <div className="content" style={{ color: "white" }}>
+                  <div className="name">{row.node.name}</div>
+                </div>
+                {/* </Link> */}
+              </Member_Card>)
+
+            ))}
+          </div>
+          <div className="right-container container">
+            <Selected_member
+              name={name}
+              desc={desc}
+              img={img}
+              linkedin={linkedin}
+              branch={branch}
+              city={city}
+              state={state}
+              about={about}
+            />
+          </div>
+          {/* </div> */}
+        </Flex>
+      </div>
+      <div className="mainContainer" id="2" style={seeScroll}>
+        <Flex>
+          <div className="year">
+            <h1>THIRD YEAR</h1>
+          </div>
+          <div className="left-container container">
+            {data.allMembersXlsxSheet3.edges.map((row, i) => (
+              i != key ? (<Member_Card
+                className="Card"
+                key={i}
+                id={i}
+                ref={myContainer}
+                data-key={i}
+                name={row.node.name}
+                style={mouse}
+                data-description={row.node.description}
+                data-img={row.node.image_link}
+                data-linkedin={row.node.link}
+                data-name={row.node.name}
+                data-branch={row.node.branch}
+                data-city={row.node.city}
+                data-state={row.node.state}
+                data-about={row.node.about}
+                onMouseOver={ReadName}
+                onMouseOut={mouseOut}
+              >
+                <Img fluid={row.node.img.childImageSharp.fluid}></Img>
+                <div className="content" style={{ color: "white" }}>
+                  <div className="name">{row.node.name}</div>
+                </div>
+                {/* </Link> */}
+              </Member_Card>) : (<Member_Card
+                className="Card"
+                key={i}
+                id={i}
+                ref={myContainer}
+                data-key={i}
+                style={{ cursor: 'pointer', transition: '0.3s ease-in-out', transform: 'scale(1.0)' }}
+                name={row.node.name}
+                data-description={row.node.description}
+                data-img={row.node.image_link}
+                data-linkedin={row.node.link}
+                data-name={row.node.name}
+                data-branch={row.node.branch}
+                data-city={row.node.city}
+                data-state={row.node.state}
+                data-about={row.node.about}
+                onMouseOver={ReadName}
+                onMouseOut={mouseOut}
+              >
+                <Img fluid={row.node.img.childImageSharp.fluid}></Img>
+                <div className="content" style={{ color: "white" }}>
+                  <div className="name">{row.node.name}</div>
+                </div>
+                {/* </Link> */}
+              </Member_Card>)
+
+            ))}
+          </div>
+          <div className="right-container container">
+            <Selected_member
+              name={name}
+              desc={desc}
+              img={img}
+              linkedin={linkedin}
+              branch={branch}
+              city={city}
+              state={state}
+              about={about}
+            />
+          </div>
+          {/* </div> */}
+        </Flex>
+      </div>
+      <div className="mainContainer" id="3" style={seeScroll}>
+        <Flex>
+          <div className="year">
+            <h1>SECOND YEAR</h1>
+          </div>
+          <div className="left-container container">
+            {data.allMembersXlsxSheet2.edges.map((row, i) => (
+              i != key ? (<Member_Card
+                className="Card"
+                key={i}
+                id={i}
+                ref={myContainer}
+                data-key={i}
+                name={row.node.name}
+                style={mouse}
+                data-description={row.node.description}
+                data-img={row.node.image_link}
+                data-linkedin={row.node.link}
+                data-name={row.node.name}
+                data-branch={row.node.branch}
+                data-city={row.node.city}
+                data-state={row.node.state}
+                data-about={row.node.about}
+                onMouseOver={ReadName}
+                onMouseOut={mouseOut}
+              >
+                <Img fluid={row.node.img.childImageSharp.fluid}></Img>
+                <div className="content" style={{ color: "white" }}>
+                  <div className="name">{row.node.name}</div>
+                </div>
+                {/* </Link> */}
+              </Member_Card>) : (<Member_Card
+                className="Card"
+                key={i}
+                id={i}
+                ref={myContainer}
+                data-key={i}
+                style={{ cursor: 'pointer', transition: '0.3s ease-in-out', transform: 'scale(1.0)' }}
+                name={row.node.name}
+                data-description={row.node.description}
+                data-img={row.node.image_link}
+                data-linkedin={row.node.link}
+                data-name={row.node.name}
+                data-branch={row.node.branch}
+                data-city={row.node.city}
+                data-state={row.node.state}
+                data-about={row.node.about}
+                onMouseOver={ReadName}
+                onMouseOut={mouseOut}
+              >
+                <Img fluid={row.node.img.childImageSharp.fluid}></Img>
+                <div className="content" style={{ color: "white" }}>
+                  <div className="name">{row.node.name}</div>
+                </div>
+                {/* </Link> */}
+              </Member_Card>)
+
+            ))}
+          </div>
+          <div className="right-container container">
+            <Selected_member
+              name={name}
+              desc={desc}
+              img={img}
+              linkedin={linkedin}
+              branch={branch}
+              city={city}
+              state={state}
+              about={about}
+            />
+          </div>
+          {/* </div> */}
+        </Flex>
+      </div>
+      <div className="mainContainer" id="4" style={seeScroll}>
+
+        <Flex>
+          <div className="year">
+            <h1>SECOND YEAR</h1>
+          </div>
+          <div className="left-container container">
+            {data.allMembersXlsxSheet1.edges.map((row, i) => (
+              i != key ? (<Member_Card
+                className="Card"
+                key={i}
+                id={i}
+                ref={myContainer}
+                data-key={i}
+                name={row.node.name}
+                style={mouse}
+                data-description={row.node.description}
+                data-img={row.node.image_link}
+                data-linkedin={row.node.link}
+                data-name={row.node.name}
+                data-branch={row.node.branch}
+                data-city={row.node.city}
+                data-state={row.node.state}
+                data-about={row.node.about}
+                onMouseOver={ReadName}
+                onMouseOut={mouseOut}
+              >
+                <Img fluid={row.node.img.childImageSharp.fluid}></Img>
+                <div className="content" style={{ color: "white" }}>
+                  <div className="name">{row.node.name}</div>
+                </div>
+                {/* </Link> */}
+              </Member_Card>) : (<Member_Card
+                className="Card"
+                key={i}
+                id={i}
+                ref={myContainer}
+                data-key={i}
+                style={{ cursor: 'pointer', transition: '0.3s ease-in-out', transform: 'scale(1.0)' }}
+                name={row.node.name}
+                data-description={row.node.description}
+                data-img={row.node.image_link}
+                data-linkedin={row.node.link}
+                data-name={row.node.name}
+                data-branch={row.node.branch}
+                data-city={row.node.city}
+                data-state={row.node.state}
+                data-about={row.node.about}
+                onMouseOver={ReadName}
+                onMouseOut={mouseOut}
+              >
+                <Img fluid={row.node.img.childImageSharp.fluid}></Img>
+                <div className="content" style={{ color: "white" }}>
+                  <div className="name">{row.node.name}</div>
+                </div>
+                {/* </Link> */}
+              </Member_Card>)
+
+            ))}
+          </div>
+          <div className="right-container container">
+            <Selected_member
+              name={name}
+              desc={desc}
+              img={img}
+              linkedin={linkedin}
+              branch={branch}
+              city={city}
+              state={state}
+              about={about}
+            />
+          </div>
+          {/* </div> */}
+        </Flex>
+      </div>
     </>
   )
 }
+
+
+
+
+
+
+
+
+
