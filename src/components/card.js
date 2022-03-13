@@ -1,8 +1,8 @@
-import React from "react"
-import { Link } from "gatsby"
-import Image from "gatsby-image"
-import styled from "styled-components"
-import kebabCase from "lodash/kebabCase"
+import React from "react";
+import { Link } from "gatsby";
+import Image from "gatsby-image";
+import styled from "styled-components";
+import kebabCase from "lodash/kebabCase";
 
 const BannerImage = styled(Image)`
   width: 400px;
@@ -15,10 +15,10 @@ const BannerImage = styled(Image)`
     width: 100%;
     height: 200px;
   }
-`
+`;
 
 const CardDiv = styled.div`
- 
+
   width: 100%;
   overflow: hidden;
   margin: 0 1% 2%;
@@ -99,38 +99,38 @@ const CardDiv = styled.div`
     transform: translateY(-2%);
     transition: 0.2s ease-out;
   }
-`
+`;
 
 const Card = ({ frontmatter, excerpt, slug }) => {
-  return (
-    <CardDiv>
-      <Link to={slug} style={{ textDecoration: "none" }} className="Links">
-        <div className="text">
-          {frontmatter.featuredImage.childImageSharp && (
-            <BannerImage
-              fluid={frontmatter.featuredImage.childImageSharp.fluid}
-              alt="Banner Image"
-            />
-          )}
-          <div className="header">
-            <div className="title">{frontmatter.title}</div>
-            <div className="date">{frontmatter.date}</div>
-            <div className="tags">
-              {frontmatter.tags.map(tag => (
-                <Link
-                  to={"/tags/" + kebabCase(tag)}
-                  style={{ textDecoration: "none", color: "white" }}
-                >
-                  <div className="tag">{tag}</div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-        <div className="excerpt">{excerpt}<a>Read More</a></div>
-      </Link>
-    </CardDiv>
-  )
-}
+	return (
+		<CardDiv>
+			<Link to={slug} style={{ textDecoration: "none" }} className="Links">
+				<div className="text">
+					{frontmatter.featuredImage.childImageSharp && (
+						<BannerImage
+							fluid={frontmatter.featuredImage.childImageSharp.fluid}
+							alt="Banner Image"
+						/>
+					)}
+					<div className="header">
+						<div className="title">{frontmatter.title}</div>
+						<div className="date">{frontmatter.date}</div>
+						<div className="tags">
+							{frontmatter.tags.map(tag => (
+								<Link
+									to={"/tags/" + kebabCase(tag)}
+									style={{ textDecoration: "none", color: "white" }}
+								>
+									<div className="tag">{tag}</div>
+								</Link>
+							))}
+						</div>
+					</div>
+				</div>
+				<div className="excerpt">{excerpt}<a>Read More</a></div>
+			</Link>
+		</CardDiv>
+	);
+};
 
-export default Card
+export default Card;

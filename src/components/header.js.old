@@ -1,6 +1,6 @@
-import { Link } from "gatsby"
-import React, { useState } from "react"
-import styled from 'styled-components'
+import { Link } from "gatsby";
+import React, { useState } from "react";
+import styled from "styled-components";
 
 const Nav = styled.nav`
   position: fixed;
@@ -67,7 +67,7 @@ const Ul = styled.ul`
     top: 8vh;
     height: 92vh;
     width: 100%;
-    transform: ${({ open }) => open ? 'translateY(0%)' : 'translateY(-150%)'};
+    transform: ${({ open }) => open ? "translateY(0%)" : "translateY(-150%)"};
     transition: transform 0.5s ease-in-out;
     li{
       opacity: ${({ open }) => open ? 1 : 0};
@@ -87,14 +87,14 @@ const Burger = styled.div`
     transform-origin: 1px;
     transition: all 0.3s linear;
     &:nth-child(1) {
-      transform: ${({ open }) => open ? 'rotate(45deg)' : 'rotate(0)'};
+      transform: ${({ open }) => open ? "rotate(45deg)" : "rotate(0)"};
     }
     &:nth-child(2) {
-      transform: ${({ open }) => open ? 'translateX(100%)' : 'translateX(0)'};
+      transform: ${({ open }) => open ? "translateX(100%)" : "translateX(0)"};
       opacity: ${({ open }) => open ? 0 : 1};
     }
     &:nth-child(3) {
-      transform: ${({ open }) => open ? 'rotate(-45deg)' : 'rotate(0)'};
+      transform: ${({ open }) => open ? "rotate(-45deg)" : "rotate(0)"};
     }
   }
   @media screen and (max-width: 790px){
@@ -114,25 +114,25 @@ const StyledLink = styled(Link)`
 
 export default function Header(){ 
 
-  const [open, setOpen] = useState(false);
-  return (
-    <Nav>
-      {/* <h2 className="logo">
+	const [open, setOpen] = useState(false);
+	return (
+		<Nav>
+			{/* <h2 className="logo">
         <Link to="/" style={{textDecoration:'none', color:'white'}}>ISTE-NITH</Link>
       </h2> */}
-      <Ul open={open}>
-      <li><StyledLink to="/" activeStyle={{fontWeight:'bolder', color: '#fff'}}>Home</StyledLink></li>
-        <li><StyledLink to="/projects/" activeStyle={{fontWeight:'bolder', color: '#fff'}}>Blog</StyledLink></li>
-        <li><StyledLink to="/events/" activeStyle={{fontWeight:'bolder', color: '#fff'}}>Events</StyledLink></li>
-        <li><StyledLink to="/members/" activeStyle={{fontWeight:'bolder', color: '#fff'}}>Members</StyledLink></li>
-        {/* <li><StyledLink to="/alumni/" activeStyle={{fontWeight:'bold', color:'#e63468'}}>Alumni</StyledLink></li> */}
-        <li><StyledLink to="/#about" activeStyle={{fontWeight:'bolder', color: '#fff'}}>About</StyledLink></li>
-      </Ul>
-      <Burger onClick={()=>{setOpen(!open)}} open={open}>
-        <div/>
-        <div/>
-        <div/>
-      </Burger>
-    </Nav>
-  )
+			<Ul open={open}>
+				<li><StyledLink to="/" activeStyle={{fontWeight:"bolder", color: "#fff"}}>Home</StyledLink></li>
+				<li><StyledLink to="/projects/" activeStyle={{fontWeight:"bolder", color: "#fff"}}>Blog</StyledLink></li>
+				<li><StyledLink to="/events/" activeStyle={{fontWeight:"bolder", color: "#fff"}}>Events</StyledLink></li>
+				<li><StyledLink to="/members/" activeStyle={{fontWeight:"bolder", color: "#fff"}}>Members</StyledLink></li>
+				{/* <li><StyledLink to="/alumni/" activeStyle={{fontWeight:'bold', color:'#e63468'}}>Alumni</StyledLink></li> */}
+				<li><StyledLink to="/#about" activeStyle={{fontWeight:"bolder", color: "#fff"}}>About</StyledLink></li>
+			</Ul>
+			<Burger onClick={()=>{setOpen(!open);}} open={open}>
+				<div/>
+				<div/>
+				<div/>
+			</Burger>
+		</Nav>
+	);
 }

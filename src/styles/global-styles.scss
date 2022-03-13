@@ -1,27 +1,26 @@
 html {
-    background: #020941;
+  background: #141414;
 }
 
 ::-webkit-scrollbar {
-    width: 8px;
-    background-color:transparent;
+  width: 8px;
+  background-color: transparent;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-    border-radius: 100px;
- 
+  border-radius: 100px;
 }
 
 /* Handle */
 ::-webkit-scroll-thumb {
-    border-radius: 15px;
-    background: #2A2E35;
+  border-radius: 15px;
+  background: #2a2e35;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #020941;
+  background: #141414;
 }
 
 // ::-webkit-scrollbar {
