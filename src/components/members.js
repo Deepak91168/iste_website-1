@@ -3,6 +3,7 @@ import { graphql, useStaticQuery, Link } from "gatsby"
 import Image from "gatsby-image"
 import styled from "styled-components"
 import iste_logo from "../images/albert.jpeg"
+import Roll from 'react-reveal/Roll';
 
 const FlexContainer = styled.div`
   display: flex;
@@ -346,6 +347,7 @@ export default function Members() {
 
   function Selected_member(props) {
     return (
+     
       <div className="Info">
         <div className="selected_member">
           <div className="before1177">
@@ -455,11 +457,13 @@ export default function Members() {
 
   return (
     <>
+    
       <Flex>
         <div className="year">
           <h1>SECOND YEAR</h1>
         </div>
         <div className="left-container container">
+        <Roll left>
           {data.allMembersXlsxSheet2.edges.map((row, i) => (
             i!=key?(<Member_Card
               className="Card"
@@ -511,9 +515,10 @@ export default function Members() {
               {/* </Link> */}
             </Member_Card>)
             
-          ))}
-        </div>
+          ))}</Roll>
+        </div> 
         <div className="right-container container">
+          <Roll right>
           <Selected_member
             name={name}
             desc={desc}
@@ -523,10 +528,11 @@ export default function Members() {
             city={city}
             state={state}
             about={about}
-          />
-        </div>
+          /></Roll>
+        </div> 
         {/* </div> */}
       </Flex>
+     
     </>
   )
 }

@@ -4,6 +4,8 @@ import styled from "styled-components"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Card from "../components/card"
+import "aos/dist/aos.css";
+import Aos from "aos";
 
 const Search = styled.input`
   background: rgba(108, 50, 224, 0.2);
@@ -41,6 +43,7 @@ function Projects({ posts }) {
 }
 
 const ProjectPage = () => {
+  
   const list = useStaticQuery(graphql`
     query {
       allMarkdownRemark(
@@ -102,6 +105,7 @@ const ProjectPage = () => {
     })
   }
 
+ 
   return (
   <Layout>
     <SEO title="Projects" />
@@ -112,9 +116,27 @@ const ProjectPage = () => {
         placeholder="🔍 Search......"
         onChange={handleInputChange}
       />
-      <FlexDiv>
-        <Projects posts={state.filteredData}></Projects>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<FlexDiv>
+<div data-aos="fade-left">
+        <Projects posts={state.filteredData}></Projects></div>
       </FlexDiv>
+
+
+
+      
     </center>
   </Layout>)
 }

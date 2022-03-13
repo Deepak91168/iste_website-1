@@ -4,6 +4,8 @@ import Img from "gatsby-image"
 import styled from "styled-components"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import "aos/dist/aos.css";
+import Aos from "aos";
 
 const Container = styled.div`
   color: white;
@@ -115,11 +117,13 @@ export default function Events() {
   console.log(data)
 
   return (
+    
     <Layout>
       <SEO title="Members" />
       {/* <h1 style={{color: 'white'}}>Our Initiatives</h1> */}
       {data.map(({ node }) => (
         <Container>
+          <div data-aos="fade-right">
           <div className="FlexContainer">
             <div className="Image">
               <Img
@@ -132,7 +136,7 @@ export default function Events() {
               dangerouslySetInnerHTML={{ __html: node.html }}
               className="EventContent"
             ></div>
-          </div>
+          </div></div>
         </Container>
       ))}
     </Layout>

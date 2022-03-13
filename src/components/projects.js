@@ -2,7 +2,9 @@ import { Link } from "gatsby"
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
-
+import "aos/dist/aos.css";
+import Aos from "aos";
+import Fade from 'react-reveal/Fade';
 const FlexContainer = styled.div`
   display: flex;
   flex-wrap: nowrap;
@@ -150,12 +152,14 @@ export default function Projects() {
   )
 
   return (    
+    <>
+  <Fade left>
       <FlexContainer>
       <div className="title">
         <h1>Recent Activity</h1>
         {/* <Link to='/projects' style={{ textDecoration: "none"}}><p className="more">See More</p></Link> */}
       </div>
-
+      <div data-aos="fade-left">
         <div className="CardContainer">
           {data.allMarkdownRemark.edges.map(({ node }) => (
           <div className="Card">
@@ -174,7 +178,8 @@ export default function Projects() {
             </Link>
           </div>
         ))}
-      </div>
-      </FlexContainer>
+      </div></div>
+      </FlexContainer></Fade>
+      </>
   )
 }

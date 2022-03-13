@@ -1,7 +1,10 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled from 'styled-components'
 import ReactAnime from 'react-animejs'
-
+import Zoom from 'react-reveal/Zoom';
+import Flip from 'react-reveal/Flip';
+import "aos/dist/aos.css";
+import Aos from "aos";
 import Layout from "../components/layout"
 import Projects from "../components/projects"
 import PhotoCarousel from '../components/carousel'
@@ -85,6 +88,9 @@ export default function IndexPage (){
   ml4.durationOut = 600;
   ml4.delay = 500;
 
+  useEffect(()=>{
+    Aos.init({duration: 2000});
+  },[]);
   return (
     <>
     <Layout>
@@ -105,10 +111,27 @@ export default function IndexPage (){
     {/* {/* <UpcomingEvent/> */}
     {/* <PhotoCarousel/> */}
     {/* <Projects/> */}
-    <Carousel>
+    
+
+
+<div data-aos="zoom-in-up">
+<Carousel>
       <PhotoCarousel/>
+
     </Carousel>
-    <AboutUs/>
+</div>
+
+
+  
+  
+    
+
+<div data-aos="flip-right">
+<AboutUs/>
+</div>
+
+
+
     </Layout>
     <Footer/>
     </>
