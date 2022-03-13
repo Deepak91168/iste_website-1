@@ -1,9 +1,9 @@
-import React from "react"
-import { graphql, useStaticQuery, Link } from "gatsby"
-import Img from "gatsby-image"
-import styled from "styled-components"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import React from "react";
+import { graphql, useStaticQuery, Link } from "gatsby";
+import Img from "gatsby-image";
+import styled from "styled-components";
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 
 const Container = styled.div`
   color: white;
@@ -54,7 +54,7 @@ const Container = styled.div`
       Img{
         @media screen and (max-width:1312px){
         width:100%;
-        ${'' /* height:200px!important; */}
+        ${"" /* height:200px!important; */}
       }
       }
       }
@@ -64,7 +64,7 @@ const Container = styled.div`
         margin-top:20px;
         color: white;
         Z-index:99;
-        ${'' /* border: 1px solid red; */}
+        ${"" /* border: 1px solid red; */}
       }
     }
   }
@@ -77,16 +77,16 @@ const Container = styled.div`
   }
   .gatsby-image-wrapper{
     img{
-      ${'' /* @media screen and (max-width:1312px){
+      ${"" /* @media screen and (max-width:1312px){
         width:20%!important;
         height:20%!important;
       } */}
     }
   }
-`
+`;
 
 export default function Events() {
-  const list = useStaticQuery(graphql`
+	const list = useStaticQuery(graphql`
     query {
       allMarkdownRemark(
         filter: { fileAbsolutePath: { regex: "/.*initiatives/" } }
@@ -109,32 +109,32 @@ export default function Events() {
         }
       }
     }
-  `)
+  `);
 
-  const data = list.allMarkdownRemark.edges
-  console.log(data)
+	const data = list.allMarkdownRemark.edges;
+	console.log(data);
 
-  return (
-    <Layout>
-      <SEO title="Members" />
-      {/* <h1 style={{color: 'white'}}>Our Initiatives</h1> */}
-      {data.map(({ node }) => (
-        <Container>
-          <div className="FlexContainer">
-            <div className="Image">
-              <Img
-                fluid={node.frontmatter.featuredImage.childImageSharp.fluid}
-                style={{margin:'0!important'}}
-              />
-              <h1 className="Title">{node.frontmatter.title}</h1>
-            </div>
-            <div
-              dangerouslySetInnerHTML={{ __html: node.html }}
-              className="EventContent"
-            ></div>
-          </div>
-        </Container>
-      ))}
-    </Layout>
-  )
+	return (
+		<Layout>
+			<SEO title="Members" />
+			{/* <h1 style={{color: 'white'}}>Our Initiatives</h1> */}
+			{data.map(({ node }) => (
+				<Container>
+					<div className="FlexContainer">
+						<div className="Image">
+							<Img
+								fluid={node.frontmatter.featuredImage.childImageSharp.fluid}
+								style={{margin:"0!important"}}
+							/>
+							<h1 className="Title">{node.frontmatter.title}</h1>
+						</div>
+						<div
+							dangerouslySetInnerHTML={{ __html: node.html }}
+							className="EventContent"
+						></div>
+					</div>
+				</Container>
+			))}
+		</Layout>
+	);
 }

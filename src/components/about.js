@@ -1,7 +1,7 @@
-import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
-import Img from "gatsby-image"
-import styled from "styled-components"
+import React from "react";
+import { graphql, useStaticQuery } from "gatsby";
+import Img from "gatsby-image";
+import styled from "styled-components";
 
 const About = styled.div`
   color: white;
@@ -22,7 +22,7 @@ const About = styled.div`
     ${"" /* display: flex;
     flex-direction: row;
     justify-content: center; */}
-    ${'' /* border: 2px solid blue; */}
+    ${"" /* border: 2px solid blue; */}
     .Image {
       width: 50%;
       border: 1px solid rgba(108, 50, 224, 0.3);
@@ -67,11 +67,11 @@ const About = styled.div`
       }
     }
   }
-`
+`;
 
 export default function AboutUs() {
-  const data = useStaticQuery(
-    graphql`
+	const data = useStaticQuery(
+		graphql`
       query {
         file(absolutePath: { regex: "/.*about/" }) {
           childMarkdownRemark {
@@ -90,27 +90,27 @@ export default function AboutUs() {
         }
       }
     `
-  )
+	);
 
-  const title = data.file.childMarkdownRemark.frontmatter.title
-  const html = data.file.childMarkdownRemark.html
-  const fluid =
+	const title = data.file.childMarkdownRemark.frontmatter.title;
+	const html = data.file.childMarkdownRemark.html;
+	const fluid =
     data.file.childMarkdownRemark.frontmatter.featuredImage.childImageSharp
-      .fluid
-  return (
-    <About id="about">
-      <div className="content">
-        <h1>ABOUT US</h1>
-        <div className="Image">
-          <Img fluid={fluid} style={{ borderRadius: "10px" }} />
-        </div>
-        <div>
-          <div
-            className="desc"
-            dangerouslySetInnerHTML={{ __html: html }}
-          ></div>
-        </div>
-      </div>
-    </About>
-  )
+    	.fluid;
+	return (
+		<About id="about">
+			<div className="content">
+				<h1>ABOUT US</h1>
+				<div className="Image">
+					<Img fluid={fluid} style={{ borderRadius: "10px" }} />
+				</div>
+				<div>
+					<div
+						className="desc"
+						dangerouslySetInnerHTML={{ __html: html }}
+					></div>
+				</div>
+			</div>
+		</About>
+	);
 }

@@ -1,7 +1,7 @@
-import { Link } from "gatsby"
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import styled from "styled-components"
+import { Link } from "gatsby";
+import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
+import styled from "styled-components";
 
 const FlexContainer = styled.div`
   display: flex;
@@ -124,8 +124,8 @@ const FlexContainer = styled.div`
 `;
 
 export default function Projects() {
-  const data = useStaticQuery(
-    graphql`
+	const data = useStaticQuery(
+		graphql`
       query {
         allMarkdownRemark(
           filter: { fileAbsolutePath: { regex: "/.*projects/" } }
@@ -147,34 +147,34 @@ export default function Projects() {
         }
       }
     `
-  )
+	);
 
-  return (    
-      <FlexContainer>
-      <div className="title">
-        <h1>Recent Activity</h1>
-        {/* <Link to='/projects' style={{ textDecoration: "none"}}><p className="more">See More</p></Link> */}
-      </div>
+	return (    
+		<FlexContainer>
+			<div className="title">
+				<h1>Recent Activity</h1>
+				{/* <Link to='/projects' style={{ textDecoration: "none"}}><p className="more">See More</p></Link> */}
+			</div>
 
-        <div className="CardContainer">
-          {data.allMarkdownRemark.edges.map(({ node }) => (
-          <div className="Card">
-            <Link to={node.fields.slug} style={{ textDecoration: "none" }} className='link'>
-              <h3 className="ProjTitle">
-                <span className="UnderlineMagical">
-                  {node.frontmatter.title}
-                </span>
-              </h3>
-              <p className="Date">
-                <span className="UnderlineMagical">
-                  {node.frontmatter.date}
-                </span>
-              </p>
-              <p className="Excerpt">{node.excerpt}</p>
-            </Link>
-          </div>
-        ))}
-      </div>
-      </FlexContainer>
-  )
+			<div className="CardContainer">
+				{data.allMarkdownRemark.edges.map(({ node }) => (
+					<div className="Card">
+						<Link to={node.fields.slug} style={{ textDecoration: "none" }} className='link'>
+							<h3 className="ProjTitle">
+								<span className="UnderlineMagical">
+									{node.frontmatter.title}
+								</span>
+							</h3>
+							<p className="Date">
+								<span className="UnderlineMagical">
+									{node.frontmatter.date}
+								</span>
+							</p>
+							<p className="Excerpt">{node.excerpt}</p>
+						</Link>
+					</div>
+				))}
+			</div>
+		</FlexContainer>
+	);
 }

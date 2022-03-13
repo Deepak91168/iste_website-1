@@ -1,14 +1,14 @@
-import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
-import Image from "gatsby-image"
-import styled from "styled-components"
+import React from "react";
+import { graphql, useStaticQuery } from "gatsby";
+import Image from "gatsby-image";
+import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 
-    faFacebook,
-    faInstagram,
-    faLinkedin
-  } from "@fortawesome/free-brands-svg-icons";
+	faFacebook,
+	faInstagram,
+	faLinkedin
+} from "@fortawesome/free-brands-svg-icons";
 
 const Img = styled(Image)`
 height:100%;
@@ -17,12 +17,12 @@ width:80%;
   @media only screen and (max-width: 786px) {
     width: 70%;
   }
-`
+`;
 
 const Flex = styled.div`
   margin-top: 5px;
   padding: 10px;
-`
+`;
 
 const CardContainer = styled.div`
   display: flex;
@@ -130,10 +130,10 @@ const CardContainer = styled.div`
       }
   }
 
-`
+`;
 
 export default function Alumni() {
-  const data = useStaticQuery(graphql`
+	const data = useStaticQuery(graphql`
     query {
       allAlumniXlsxSheet1(sort: { fields: [ start,name ], order: [ DESC,ASC ] }) {
         edges {
@@ -156,31 +156,31 @@ export default function Alumni() {
         }
       }
     }
-  `)
+  `);
 
-  return (
-    <Flex>
-      <CardContainer>
-        {data.allAlumniXlsxSheet1.edges.map((row) => (
-          <div className="Card">
-          <div class="inner-box " data-wow-delay="0ms" data-wow-duration="1500ms">
-                        <ul class="social-icons">
-                            <li><a href={row.node.facebook}><FontAwesomeIcon icon={faFacebook} size="1x" /></a></li>
-                            <li><a href={row.node.linkedin}><FontAwesomeIcon icon={faLinkedin} size="1x" /></a></li>
+	return (
+		<Flex>
+			<CardContainer>
+				{data.allAlumniXlsxSheet1.edges.map((row) => (
+					<div className="Card">
+						<div className="inner-box " data-wow-delay="0ms" data-wow-duration="1500ms">
+							<ul className="social-icons">
+								<li><a href={row.node.facebook}><FontAwesomeIcon icon={faFacebook} size="1x" /></a></li>
+								<li><a href={row.node.linkedin}><FontAwesomeIcon icon={faLinkedin} size="1x" /></a></li>
 
-                            <li><a href={row.node.instagram}><FontAwesomeIcon icon={faInstagram} size="1x" /></a></li>
-                        </ul>
-            <Img className="image" fluid={row.node.img.childImageSharp.fluid}></Img>        
-              <div className="content">
-                <div className="name">{row.node.name}</div>
-                <div className="position">{row.node.position}</div>
-                <div className="batch">{row.node.start} - {row.node.end}</div>
+								<li><a href={row.node.instagram}><FontAwesomeIcon icon={faInstagram} size="1x" /></a></li>
+							</ul>
+							<Img className="image" fluid={row.node.img.childImageSharp.fluid}></Img>        
+							<div className="content">
+								<div className="name">{row.node.name}</div>
+								<div className="position">{row.node.position}</div>
+								<div className="batch">{row.node.start} - {row.node.end}</div>
                 
-              </div>
-            </div>
-          </div>
-        ))}
-      </CardContainer>
-    </Flex>
-  )
+							</div>
+						</div>
+					</div>
+				))}
+			</CardContainer>
+		</Flex>
+	);
 }
