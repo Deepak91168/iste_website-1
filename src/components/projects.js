@@ -5,6 +5,7 @@ import styled from "styled-components"
 import "aos/dist/aos.css";
 import Aos from "aos";
 import Fade from 'react-reveal/Fade';
+
 const FlexContainer = styled.div`
   display: flex;
   flex-wrap: nowrap;
@@ -126,8 +127,8 @@ const FlexContainer = styled.div`
 `;
 
 export default function Projects() {
-  const data = useStaticQuery(
-    graphql`
+	const data = useStaticQuery(
+		graphql`
       query {
         allMarkdownRemark(
           filter: { fileAbsolutePath: { regex: "/.*projects/" } }
@@ -149,7 +150,8 @@ export default function Projects() {
         }
       }
     `
-  )
+	);
+
 
   return (    
     <>
@@ -182,4 +184,5 @@ export default function Projects() {
       </FlexContainer></Fade>
       </>
   )
+
 }

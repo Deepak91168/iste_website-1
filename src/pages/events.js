@@ -7,6 +7,7 @@ import SEO from "../components/seo"
 import "aos/dist/aos.css";
 import Aos from "aos";
 
+
 const Container = styled.div`
   color: white;
   border-radius: 20px;
@@ -56,7 +57,7 @@ const Container = styled.div`
       Img{
         @media screen and (max-width:1312px){
         width:100%;
-        ${'' /* height:200px!important; */}
+        ${"" /* height:200px!important; */}
       }
       }
       }
@@ -66,7 +67,7 @@ const Container = styled.div`
         margin-top:20px;
         color: white;
         Z-index:99;
-        ${'' /* border: 1px solid red; */}
+        ${"" /* border: 1px solid red; */}
       }
     }
   }
@@ -79,16 +80,16 @@ const Container = styled.div`
   }
   .gatsby-image-wrapper{
     img{
-      ${'' /* @media screen and (max-width:1312px){
+      ${"" /* @media screen and (max-width:1312px){
         width:20%!important;
         height:20%!important;
       } */}
     }
   }
-`
+`;
 
 export default function Events() {
-  const list = useStaticQuery(graphql`
+	const list = useStaticQuery(graphql`
     query {
       allMarkdownRemark(
         filter: { fileAbsolutePath: { regex: "/.*initiatives/" } }
@@ -111,10 +112,11 @@ export default function Events() {
         }
       }
     }
-  `)
+  `);
 
-  const data = list.allMarkdownRemark.edges
-  console.log(data)
+	const data = list.allMarkdownRemark.edges;
+	console.log(data);
+
 
   return (
     
@@ -141,4 +143,5 @@ export default function Events() {
       ))}
     </Layout>
   )
+
 }

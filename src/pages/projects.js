@@ -7,6 +7,7 @@ import Card from "../components/card"
 import "aos/dist/aos.css";
 import Aos from "aos";
 
+
 const Search = styled.input`
   background: rgba(108, 50, 224, 0.2);
   padding: 1rem;
@@ -35,16 +36,17 @@ const FlexDiv = styled.div`
     display: flex;
     flex-wrap: wrap;
     position: relative;
-`
+`;
 function Projects({ posts }) {
-  return posts.map(({ node }) => (
-    <Card frontmatter={node.frontmatter} excerpt={node.excerpt} slug={node.fields.slug}/>
-  ))
+	return posts.map(({ node }) => (
+		<Card frontmatter={node.frontmatter} excerpt={node.excerpt} slug={node.fields.slug}/>
+	));
 }
 
 const ProjectPage = () => {
   
   const list = useStaticQuery(graphql`
+
     query {
       allMarkdownRemark(
         filter: { fileAbsolutePath: { regex: "/.*projects/" } }
@@ -72,38 +74,38 @@ const ProjectPage = () => {
         }
       }
     }
-  `)
+  `);
 
-  const posts = list.allMarkdownRemark.edges;
+	const posts = list.allMarkdownRemark.edges;
 
-  const emptyQuery = ""
-  const [state, setState] = useState({
-    filteredData: posts,
-    query: emptyQuery,
-  })
+	const emptyQuery = "";
+	const [state, setState] = useState({
+		filteredData: posts,
+		query: emptyQuery,
+	});
 
-  const handleInputChange = event => {
-    const query = event.target.value
-    const data = list
-    const posts = data.allMarkdownRemark.edges || []
-    const filteredData = posts.filter(post => {
-      const {title, tags } = post.node.frontmatter
-      const excerpt = post.node.excerpt;
-      return (
-        excerpt.toLowerCase().includes(query.toLowerCase())||
+	const handleInputChange = event => {
+		const query = event.target.value;
+		const data = list;
+		const posts = data.allMarkdownRemark.edges || [];
+		const filteredData = posts.filter(post => {
+			const {title, tags } = post.node.frontmatter;
+			const excerpt = post.node.excerpt;
+			return (
+				excerpt.toLowerCase().includes(query.toLowerCase())||
         title.toLowerCase().includes(query.toLowerCase()) ||
         (tags && tags
-          .join("") 
-          .toLowerCase()
-          .includes(query.toLowerCase()))
-      )
-    })
+        	.join("") 
+        	.toLowerCase()
+        	.includes(query.toLowerCase()))
+			);
+		});
     
-    setState({
-      query,
-      filteredData,
-    })
-  }
+		setState({
+			query,
+			filteredData,
+		});
+	};
 
  
   return (
@@ -141,4 +143,5 @@ const ProjectPage = () => {
   </Layout>)
 }
 
-export default ProjectPage
+
+export default ProjectPage;
