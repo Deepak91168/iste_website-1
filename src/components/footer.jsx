@@ -20,19 +20,19 @@ const footer = () => {
             <div className='copyright-text'>
               © {new Date().getFullYear()}, ISTENITH{' '}
             </div>
-              <p className='text'>
-                Wanna talk to ISTE? Or be a part of it? You can contact any of
-                our members personally or 📧 us at{' '}
-                <strong>
-                  <a
+            <p className='text'>
+              Wanna talk to ISTE? Or be a part of it? You can contact any of our
+              members personally or 📧 us at{' '}
+              <strong>
+                <a
                   style={{ color: '#f50057' }}
-                    href='mailto:teamiste@gmail.com'
-                  >
-                    teamiste@gmail.com
-                  </a>
-                </strong>
-                !
-              </p>
+                  href='mailto:teamiste@gmail.com'
+                >
+                  teamiste@gmail.com
+                </a>
+              </strong>
+              !
+            </p>
 
             <ul className='social-icons'>
               <li>

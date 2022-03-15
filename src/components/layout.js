@@ -11,6 +11,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import Header from './header'
 import styled from 'styled-components'
 import Footer from './footer'
+import '../styles/global-styles.scss'
 
 const Master = styled.div`
   display: flex;

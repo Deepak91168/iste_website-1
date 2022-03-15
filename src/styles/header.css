@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background: rgba(4, 41, 99, 1);
+  background: rgba(0, 0, 0, 0.5);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   padding-left: 130px;
   padding-right: 130px;
@@ -83,7 +83,7 @@ span.icons {
     background: #1e1e1f30;
     align-items: center;
     width: 100%;
-    /* height: 100%; */
+    height: auto;
     transform: translateX(-100%);
     transition: all 0.45s;
     z-index: 999;
@@ -96,16 +96,17 @@ span.icons {
     justify-content: space-between;
     align-items: center;
     /* background: #5265c400; */
-    background: rgba(4, 41, 99, 1);
+    background: rgba(0, 0, 0, 0.5);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 2px;
+    padding-right: 2px;
   }
   .Navbar > .nav-items > a::before {
     background: transparent;
   }
-
+  /* .Navbar > .nav-items > a { */
+  /*   margin: 3.8em; */
+  /* } */
   .Navbar > .nav-items.open {
     transform: translateX(0);
   }
