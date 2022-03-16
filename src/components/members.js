@@ -1,8 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react'
-import { graphql, useStaticQuery, Link } from 'gatsby'
-import Image from 'gatsby-image'
-import styled from 'styled-components'
-import iste_logo from '../images/albert.jpeg'
+import React, { useState, useEffect, useRef } from "react"
+import { graphql, useStaticQuery, Link } from "gatsby"
+import Image from "gatsby-image"
+import styled from "styled-components"
+import iste_logo from "../images/albert.jpeg"
+import Roll from 'react-reveal/Roll';
+
 
 const FlexContainer = styled.div`
   display: flex;
@@ -345,10 +347,13 @@ export default function Members() {
 
   function Selected_member(props) {
     return (
-      <div className='Info'>
-        <div className='selected_member'>
-          <div className='before1177'>
-            <div className='name'>
+   
+     
+      <div className="Info">
+        <div className="selected_member">
+          <div className="before1177">
+            <div className="name">
+
               <h1>{props.name}</h1>
             </div>
             <div className='position'>
@@ -453,72 +458,70 @@ export default function Members() {
 
   return (
     <>
+    
       <Flex>
         <div className='year'>
           <h1>SECOND YEAR</h1>
         </div>
-        <div className='left-container container'>
-          {data.allMembersXlsxSheet2.edges.map((row, i) =>
-            i != key ? (
-              <Member_Card
-                className='Card'
-                key={i}
-                id={i}
-                ref={myContainer}
-                data-key={i}
-                name={row.node.name}
-                style={mouse}
-                data-description={row.node.description}
-                data-img={row.node.image_link}
-                data-linkedin={row.node.link}
-                data-name={row.node.name}
-                data-branch={row.node.branch}
-                data-city={row.node.city}
-                data-state={row.node.state}
-                data-about={row.node.about}
-                onMouseOver={ReadName}
-                onMouseOut={mouseOut}
-              >
-                <Img fluid={row.node.img.childImageSharp.fluid}></Img>
-                <div className='content' style={{ color: 'white' }}>
-                  <div className='name'>{row.node.name}</div>
-                </div>
-                {/* </Link> */}
-              </Member_Card>
-            ) : (
-              <Member_Card
-                className='Card'
-                key={i}
-                id={i}
-                ref={myContainer}
-                data-key={i}
-                style={{
-                  cursor: 'pointer',
-                  transition: '0.3s ease-in-out',
-                  transform: 'scale(1.0)',
-                }}
-                name={row.node.name}
-                data-description={row.node.description}
-                data-img={row.node.image_link}
-                data-linkedin={row.node.link}
-                data-name={row.node.name}
-                data-branch={row.node.branch}
-                data-city={row.node.city}
-                data-state={row.node.state}
-                data-about={row.node.about}
-                onMouseOver={ReadName}
-                onMouseOut={mouseOut}
-              >
-                <Img fluid={row.node.img.childImageSharp.fluid}></Img>
-                <div className='content' style={{ color: 'white' }}>
-                  <div className='name'>{row.node.name}</div>
-                </div>
-                {/* </Link> */}
-              </Member_Card>
-            )
-          )}
-        </div>
-        <div className='right-container container'>
+
+        <div className="left-container container">
+        <Roll left>
+          {data.allMembersXlsxSheet2.edges.map((row, i) => (
+            i!=key?(<Member_Card
+              className="Card"
+              key={i}
+              id={i}
+              ref={myContainer}
+              data-key={i}
+              name={row.node.name}
+              style={mouse}
+              data-description={row.node.description}
+              data-img={row.node.image_link}
+              data-linkedin={row.node.link}
+              data-name={row.node.name}
+              data-branch={row.node.branch}
+              data-city={row.node.city}
+              data-state={row.node.state}
+              data-about={row.node.about}
+              onMouseOver={ReadName}
+              onMouseOut={mouseOut}
+            >
+              <Img fluid={row.node.img.childImageSharp.fluid}></Img>
+              <div className="content" style={{ color: "white" }}>
+                <div className="name">{row.node.name}</div>
+              </div>
+              {/* </Link> */}
+            </Member_Card>):(<Member_Card
+              className="Card"
+              key={i}
+              id={i}
+              ref={myContainer}
+              data-key={i}
+              style={{cursor:'pointer',transition:'0.3s ease-in-out',transform:'scale(1.0)'}}
+              name={row.node.name}
+              data-description={row.node.description}
+              data-img={row.node.image_link}
+              data-linkedin={row.node.link}
+              data-name={row.node.name}
+              data-branch={row.node.branch}
+              data-city={row.node.city}
+              data-state={row.node.state}
+              data-about={row.node.about}
+              onMouseOver={ReadName}
+              onMouseOut={mouseOut}
+            >
+              <Img fluid={row.node.img.childImageSharp.fluid}></Img>
+              <div className="content" style={{ color: "white" }}>
+                <div className="name">{row.node.name}</div>
+              </div>
+              {/* </Link> */}
+            </Member_Card>)
+            
+          ))}</Roll>
+        </div> 
+        <div className="right-container container">
+          <Roll right>
+
           <Selected_member
             name={name}
             desc={desc}
@@ -528,10 +531,11 @@ export default function Members() {
             city={city}
             state={state}
             about={about}
-          />
-        </div>
+          /></Roll>
+        </div> 
         {/* </div> */}
       </Flex>
+     
     </>
   )
 }

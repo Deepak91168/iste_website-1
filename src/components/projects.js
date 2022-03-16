@@ -1,7 +1,10 @@
-import { Link } from "gatsby";
-import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
-import styled from "styled-components";
+import { Link } from "gatsby"
+import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
+import styled from "styled-components"
+import "aos/dist/aos.css";
+import Aos from "aos";
+import Fade from 'react-reveal/Fade';
 
 const FlexContainer = styled.div`
   display: flex;
@@ -149,32 +152,37 @@ export default function Projects() {
     `
 	);
 
-	return (    
-		<FlexContainer>
-			<div className="title">
-				<h1>Recent Activity</h1>
-				{/* <Link to='/projects' style={{ textDecoration: "none"}}><p className="more">See More</p></Link> */}
-			</div>
 
-			<div className="CardContainer">
-				{data.allMarkdownRemark.edges.map(({ node }) => (
-					<div className="Card">
-						<Link to={node.fields.slug} style={{ textDecoration: "none" }} className='link'>
-							<h3 className="ProjTitle">
-								<span className="UnderlineMagical">
-									{node.frontmatter.title}
-								</span>
-							</h3>
-							<p className="Date">
-								<span className="UnderlineMagical">
-									{node.frontmatter.date}
-								</span>
-							</p>
-							<p className="Excerpt">{node.excerpt}</p>
-						</Link>
-					</div>
-				))}
-			</div>
-		</FlexContainer>
-	);
+  return (    
+    <>
+  <Fade left>
+      <FlexContainer>
+      <div className="title">
+        <h1>Recent Activity</h1>
+        {/* <Link to='/projects' style={{ textDecoration: "none"}}><p className="more">See More</p></Link> */}
+      </div>
+      <div data-aos="fade-left">
+        <div className="CardContainer">
+          {data.allMarkdownRemark.edges.map(({ node }) => (
+          <div className="Card">
+            <Link to={node.fields.slug} style={{ textDecoration: "none" }} className='link'>
+              <h3 className="ProjTitle">
+                <span className="UnderlineMagical">
+                  {node.frontmatter.title}
+                </span>
+              </h3>
+              <p className="Date">
+                <span className="UnderlineMagical">
+                  {node.frontmatter.date}
+                </span>
+              </p>
+              <p className="Excerpt">{node.excerpt}</p>
+            </Link>
+          </div>
+        ))}
+      </div></div>
+      </FlexContainer></Fade>
+      </>
+  )
+
 }
