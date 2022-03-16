@@ -45,6 +45,13 @@ const Navbar = () => {
           Events
         </StyledLink>
         <StyledLink
+          to='/members/'
+          activeClassName='active'
+          activeStyle={{ fontWeight: 'bold', color: '#f50057' }}
+        >
+          Members
+        </StyledLink>
+        <StyledLink
           to='/#about'
           activeClassName='active'
           activeStyle={{ fontWeight: 'bold', color: '#f50057' }}

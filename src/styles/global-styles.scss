@@ -2,43 +2,24 @@ html {
   background: #141414;
 }
 
+/* whole scrollbar css */
 ::-webkit-scrollbar {
-  width: 8px;
-  background-color: transparent;
+  width: 9px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  border-radius: 100px;
+  background: #ffffff50;
+  border-radius: 10px;
 }
 
 /* Handle */
-::-webkit-scroll-thumb {
-  border-radius: 15px;
-  background: #2a2e35;
+::-webkit-scrollbar-thumb {
+  background: #f50057;
+  border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #141414;
+  background: #f50057;
 }
-
-// ::-webkit-scrollbar {
-//     width: 8px;
-//     border-radius:50px;
-// }
-
-// /* Track */
-// ::-webkit-scrollbar-track {
-//     background: #f1f1f1;
-// }
-
-// /* Handle */
-// ::-webkit-scrollbar-thumb {
-//     background: rgb(185, 185, 185);
-// }
-
-// /* Handle on hover */
-// ::-webkit-scrollbar-thumb:hover {
-//     background: #888;
-// }
