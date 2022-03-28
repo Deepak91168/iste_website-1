@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import "aos/dist/aos.css";
 import Aos from "aos";
-import Fade from 'react-reveal/Fade';
+#import Fade from 'react-reveal/Fade';
 
 const FlexContainer = styled.div`
   display: flex;

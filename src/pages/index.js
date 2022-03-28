@@ -1,8 +1,8 @@
 import React, { useEffect } from "react"
 import styled from 'styled-components'
 import ReactAnime from 'react-animejs'
-import Zoom from 'react-reveal/Zoom';
-import Flip from 'react-reveal/Flip';
+// import Zoom from 'react-reveal/Zoom';
+// import Flip from 'react-reveal/Flip';
 import "aos/dist/aos.css";
 import Aos from "aos";
 import Layout from "../components/layout"
@@ -115,21 +115,21 @@ export default function IndexPage() {
     
 
 
-<div data-aos="zoom-in-up">
+{/* <div data-aos="zoom-in-up">
 <Carousel>
       <PhotoCarousel/>
 
     </Carousel>
-</div>
+</div> */}
 
 
   
   
     
 
-<div data-aos="flip-right">
+{/* <div data-aos="flip-right">
 <AboutUs/>
-</div>
+</div> */}
 
 
 
