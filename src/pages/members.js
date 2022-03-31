@@ -3,7 +3,7 @@ import React from 'react'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Members from '../components/members'
-import footer from '../components/footer.jsx'
+// import Footer from '../components/footer.jsx'
 
 
 export default function Member() {
@@ -11,7 +11,7 @@ export default function Member() {
     <Layout>
       <SEO title='Members' />
       <Members></Members>
-    <footer/>
+    {/* <Footer/> */}
     </Layout>
    
   )

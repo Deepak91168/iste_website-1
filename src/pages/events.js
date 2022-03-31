@@ -6,6 +6,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import "aos/dist/aos.css";
 import Aos from "aos";
+import Footer from "../components/footer"
 
 
 const Container = styled.div`
@@ -119,7 +120,7 @@ export default function Events() {
 
 
   return (
-    
+    <>
     <Layout>
       <SEO title="Members" />
       {/* <h1 style={{color: 'white'}}>Our Initiatives</h1> */}
@@ -142,6 +143,8 @@ export default function Events() {
         </Container>
       ))}
     </Layout>
+    <Footer />
+    </>
   )
 
 }
