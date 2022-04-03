@@ -14,7 +14,7 @@ import styled from 'styled-components'
 
 const Footer = styled.div`
   .site-footer {
-    background-color: #ffffff20;
+    background-color: #0f292f;
     padding: 20px 0 12px;
     font-size: 15px;
     line-height: 24px;
@@ -213,7 +213,7 @@ const footer = () => {
                 </Link>
               </li>
               <li>
-                <Link className='linkedin' className='linkedin' to='#'>
+                <Link className='linkedin'  to='#'>
                   <FontAwesomeIcon icon={faLinkedin} size='1x' />
                 </Link>
               </li>
