@@ -140,7 +140,9 @@ const ProjectPage = () => {
 
       
     </center>
-  </Layout>)
+  </Layout>
+
+  )
 }
 
 

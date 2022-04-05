@@ -2,10 +2,10 @@
 .Navbar {
   height: 65px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  background: rgba(0, 0, 0, 0.5);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  /* background: rgba(0, 0, 0, 0.5); */
+  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); */
   padding-left: 130px;
   padding-right: 130px;
   /* padding-top: 25px; */
@@ -80,7 +80,6 @@ span.icons {
     top: 65px;
     display: flex;
     flex-direction: column;
-    background: #1e1e1f30;
     align-items: center;
     width: 100%;
     height: auto;
@@ -95,11 +94,8 @@ span.icons {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* background: #5265c400; */
-    background: rgba(0, 0, 0, 0.5);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    padding-left: 2px;
-    padding-right: 2px;
+    padding-left: 2%;
+    padding-right: 2%;
   }
   .Navbar > .nav-items > a::before {
     background: transparent;

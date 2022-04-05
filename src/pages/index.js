@@ -1,12 +1,12 @@
-import React, { useEffect } from "react"
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import ReactAnime from 'react-animejs'
-import Zoom from 'react-reveal/Zoom';
-import Flip from 'react-reveal/Flip';
-import "aos/dist/aos.css";
-import Aos from "aos";
-import Layout from "../components/layout"
-import Projects from "../components/projects"
+// import Zoom from 'react-reveal/Zoom';
+// import Flip from 'react-reveal/Flip';
+import 'aos/dist/aos.css'
+import Aos from 'aos'
+import Layout from '../components/layout'
+import Projects from '../components/projects'
 
 import PhotoCarousel from '../components/carousel'
 import AboutUs from '../components/about'
@@ -89,53 +89,36 @@ export default function IndexPage() {
   ml4.durationOut = 600
   ml4.delay = 500
 
-  useEffect(()=>{
-    Aos.init({duration: 2000});
-  },[]);
+  useEffect(() => {
+    Aos.init({ duration: 2000 })
+  }, [])
   return (
     <>
-    <Layout>
-    <SEO title="Home" />
-    <LandingDiv>
-      <div className='text'>
-        <h1 className='name'>ISTE NITH</h1>
-        <Tagline/>
-      </div>
-      <div className='logo'>
-        <IsteLogo 
-          className='img' 
-          width='300px' 
-          height='300px'
-          />
-      </div>
-    </LandingDiv>
-    {/* {/* <UpcomingEvent/> */}
-    {/* <PhotoCarousel/> */}
-    {/* <Projects/> */}
-    
+      <Layout>
+        <SEO title='Home' />
+        <LandingDiv>
+          <div className='text'>
+            <h1 className='name'>ISTE NITH</h1>
+            <Tagline />
+          </div>
+          <div className='logo'>
+            <IsteLogo className='img' width='300px' height='300px' />
+          </div>
+        </LandingDiv>
+        {/* {/* <UpcomingEvent/> */}
+        {/* <PhotoCarousel/> */}
+        {/* <Projects/> */}
+        <div data-aos='zoom-in-up'>
+          <Carousel>
+            <PhotoCarousel />
+          </Carousel>
+        </div>
+        <div data-aos='flip-right'>
+          <AboutUs />
+        </div>
+      </Layout>
 
-
-<div data-aos="zoom-in-up">
-<Carousel>
-      <PhotoCarousel/>
-
-    </Carousel>
-</div>
-
-
-  
-  
-    
-
-<div data-aos="flip-right">
-<AboutUs/>
-</div>
-
-
-
-    </Layout>
-    <Footer/>
-
+      <Footer />
     </>
   )
 }
