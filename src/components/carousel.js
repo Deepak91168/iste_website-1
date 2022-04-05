@@ -24,6 +24,7 @@ export default function PhotoCarousel(){
 	);
 	return (
 		<Carousel autoPlay>
+          
 			{data.allFile.edges.map(({node})=>(
 				<div>
 					<Img fixed={node.childImageSharp.fixed}/>

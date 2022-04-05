@@ -19,7 +19,7 @@ const FlexContainer = styled.div`
     margin: 2rem 0;
     flex: 0 10 320px;
     margin: 2rem 1rem 1rem;
-    background-image:  linear-gradient(0deg,#ff8a00,#e52e71);
+    background-image:  #14a098;
     display: flex;
     flex-direction:column;
     justify-content: flex-end;

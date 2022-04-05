@@ -34,7 +34,7 @@ const StyledLink = styled(Link)`
     top: 50%;
     left: -15%;
     height: 2px;
-    background: rgba(255, 255, 255, 0.15);
+    background: #501F3A;
     transition: all 0.3s ease;
   }
 
@@ -44,7 +44,7 @@ const StyledLink = styled(Link)`
   transition: 0.2s;
   &:hover {
     color: #fff;
-    background: rgba(255, 255, 255, 0.15);
+    background: #501F3A;
     color: #fff;
   }
 `

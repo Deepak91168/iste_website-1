@@ -6,13 +6,13 @@ import styled from "styled-components";
 const About = styled.div`
   color: white;
   border: 2px solid rgba(108, 50, 224, 0.3);
-  background-color: rgba(108, 50, 224, 0.1);
+  background-color: #14a098;
   border-radius: 10px;
   padding: 1rem 1rem;
   margin: 2rem 1rem;
   box-shadow: 0 40px 40px rgba(10, 10, 10, 0.6);
   h1 {
-    color: white;
+    color: #0f292f;
     margin: 1rem 0;
     text-align: center;
     justify-content: center;
