@@ -285,7 +285,6 @@ export default function Members() {
         }
       }
 
-
       allMembersXlsxSheet2(sort: { fields: name, order: ASC }) {
         edges {
           node {

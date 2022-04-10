@@ -13,7 +13,7 @@ import Bounce from 'react-reveal/Bounce'
 const StyledLink = styled(Link)`
   display: block;
   width: 80%;
-  font-size: 2.4vw;
+  font-size: 2vw;
   text-decoration: none;
   color: white;
   padding: 2%;
@@ -63,7 +63,7 @@ const Menu = styled.div`
   }
   ul {
     text-align: center;
-    padding-top: 20vh;
+    padding-top: 15vh;
   }
 `
 const Menuburger = styled.div`
@@ -159,6 +159,15 @@ const Navbar = () => {
             </Bounce>
             <Bounce right delay={160}>
               <StyledLink
+                to='/activites'
+                activeClassName='active'
+                activeStyle={{ fontWeight: 'bold', color: '#f50057' }}
+              >
+                Activites
+              </StyledLink>
+            </Bounce>
+            <Bounce right delay={180}>
+              <StyledLink
                 to='/members'
                 activeClassName='active'
                 activeStyle={{ fontWeight: 'bold', color: '#f50057' }}
@@ -166,7 +175,16 @@ const Navbar = () => {
                 Members
               </StyledLink>
             </Bounce>
-            <Bounce right delay={180}>
+            <Bounce right delay={200}>
+              <StyledLink
+                to='/alumni'
+                activeClassName='active'
+                activeStyle={{ fontWeight: 'bold', color: '#f50057' }}
+              >
+                Alumni
+              </StyledLink>
+            </Bounce>
+            <Bounce right delay={220}>
               <StyledLink
                 to='/#about'
                 activeClassName='active'

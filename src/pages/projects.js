@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Card from "../components/card"
 import "aos/dist/aos.css";
-import Aos from "aos";
+// import Aos from "aos";
 
 
 const Search = styled.input`

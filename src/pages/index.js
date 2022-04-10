@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import ReactAnime from 'react-animejs'
 // import Zoom from 'react-reveal/Zoom';
@@ -7,7 +7,6 @@ import 'aos/dist/aos.css'
 import Aos from 'aos'
 import Layout from '../components/layout'
 import Projects from '../components/projects'
-
 import PhotoCarousel from '../components/carousel'
 import AboutUs from '../components/about'
 import SEO from '../components/seo'
@@ -15,6 +14,9 @@ import UpcomingEvent from '../components/upcoming_event'
 import { ReactComponent as IsteLogo } from '../images/iste_logo_hollow.svg'
 import Tagline from '../components/tagline'
 import Footer from '../components/footer'
+import GalleryImage from './gallery'
+import Tilt from 'react-parallax-tilt';
+
 
 const mainup = styled.div` 
 background: #14a098;
@@ -33,7 +35,6 @@ const LandingDiv = styled.div`
   display: grid;
   
   grid-template-columns: repeat(3, 1fr);
-  background: #14a098;
   padding: 2em;
   justify-items: color-interpolation-filters;
   ${'' /* margin-top:1vh; */}
@@ -63,6 +64,11 @@ const LandingDiv = styled.div`
     color: #14a098;
     padding-left: 6rem;
     margin: 3em;
+    transition: 0.5s ease-in-out;
+  }
+  .logo:hover{
+    transition: 0.5s ease-in-out;
+    transform:scale(1.1);
   }
 
   @media screen and (max-width: 1080px) {
@@ -94,16 +100,17 @@ const LandingDiv = styled.div`
     }
   }
 `
+
 const mystyle = {
 
-//   backgroundColor: "#c96567",
-//   padding: "10px",
-// margin: 0,
-// paddingtop: "2em",
-// width:"120%",
-// left: "-20%",
-// position: "absolute",
-// zIndex: "2"
+  //   backgroundColor: "#c96567",
+  //   padding: "10px",
+  // margin: 0,
+  // paddingtop: "2em",
+  // width:"120%",
+  // left: "-20%",
+  // position: "absolute",
+  // zIndex: "2"
 };
 const Carousel = styled.div`
   .carousel {
@@ -122,10 +129,28 @@ export default function IndexPage() {
   useEffect(() => {
     Aos.init({ duration: 2000 })
   }, [])
+
+  const useMove = () => {
+    const [state, setState] = useState({ x: 0, y: 0 })
+
+    const handleMouseMove = e => {
+      e.persist()
+      setState(state => ({ ...state, x: e.clientX, y: e.clientY }))
+    }
+    return {
+      x: state.x,
+      y: state.y,
+      handleMouseMove,
+    }
+  }
+
+  const { x, y, handleMouseMove } = useMove()
+  var angle = (Math.atan(y / x) / 3.14) * 180;
+  console.log(x, y, angle);
+
   return (
     <>
-    <div className='mainup'>
-      
+      <div className='mainup' onMouseMove={handleMouseMove}>
         <SEO title='Home' />
         <LandingDiv>
           <div className='text'>
@@ -133,23 +158,24 @@ export default function IndexPage() {
             <Tagline />
           </div>
           <div className='logo'>
-            <IsteLogo className='img' width='300px' height='300px' />
+            <Tilt>
+              <IsteLogo className='img' width='300px' height='300px' />
+            </Tilt>
           </div>
-        </LandingDiv></div><Layout>
-        {/* {/* <UpcomingEvent/> */}
-        {/* <PhotoCarousel/> */}
-        {/* <Projects/> */}
-        <div style={mystyle}>
-        <div data-aos='zoom-in-up'>
-          <Carousel>
-            <PhotoCarousel />
-          </Carousel>
-        </div></div>
-        <div data-aos='flip-right'>
+        </LandingDiv></div>
+
+      <GalleryImage />
+      <Layout>
+        <div>
           <AboutUs />
         </div>
+        <div style={mystyle}>
+          <div data-aos='zoom-in-up'>
+            <Carousel>
+              <PhotoCarousel />
+            </Carousel>
+          </div></div>
       </Layout>
-
       <Footer />
     </>
   )
