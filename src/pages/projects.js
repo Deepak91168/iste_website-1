@@ -9,7 +9,7 @@ import "aos/dist/aos.css";
 
 
 const Search = styled.input`
-  background: rgba(108, 50, 224, 0.2);
+  background: #EA895F70;
   padding: 1rem;
   width: 50%;
   height: 35px;
@@ -18,7 +18,7 @@ const Search = styled.input`
   color: white;
   font-family: Roboto;
   transition : 0.2s ease-in;
-  border: 1px solid rgba(108, 50, 224, 0.5);
+  border: 1px solid #EA895F;
   &:focus, &:hover{
     box-shadow: none;
     background: rgba(108, 50, 224, 0.3);
@@ -118,27 +118,10 @@ const ProjectPage = () => {
         placeholder="🔍 Search......"
         onChange={handleInputChange}
       />
-
-
-
-
-
-
-
-
-
-
-
-
-
-<FlexDiv>
-<div data-aos="fade-left">
+      <FlexDiv>
+        <div data-aos="fade-left">
         <Projects posts={state.filteredData}></Projects></div>
       </FlexDiv>
-
-
-
-      
     </center>
   </Layout>
 

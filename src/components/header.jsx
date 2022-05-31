@@ -22,7 +22,7 @@ const StyledLink = styled(Link)`
   transition: all 0.3s ease;
   position: relative;
   display: inline-block;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease;  
   @media screen and (max-width:1356px){
     font-size:40px;
   }
@@ -34,7 +34,7 @@ const StyledLink = styled(Link)`
     top: 50%;
     left: -15%;
     height: 2px;
-    background: #501F3A;
+    background: #E05215;
     transition: all 0.3s ease;
   }
 
@@ -44,7 +44,7 @@ const StyledLink = styled(Link)`
   transition: 0.2s;
   &:hover {
     color: #fff;
-    background: #501F3A;
+    background: #E0521550;
     color: #fff;
   }
 `
@@ -58,7 +58,8 @@ const Menu = styled.div`
   height: 100vh;
   left:0;
   z-index: +999;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(50px);
+  box-shadow: 0 30px 40px rgba(0,0,0,1);
   @media screen and (max-width:700px){  
     width: 100vw;
   }
@@ -110,12 +111,26 @@ top:0;
 position: fixed;
 `
 
+const ExtraForClose = styled.div`
+position:absolute;
+top:0;
+left:0;
+width:100vw;
+height:100vh;
+z-index:-1;
+`
+
 const Navbar = () => {
   const [isOpen, setOpen] = useState(false)
+
+  function clicked(){
+    setOpen(!isOpen)
+  }
 
   const ToggleNav = () => {
     return (
       <>
+        <ExtraForClose onClick={clicked}></ExtraForClose>
         <Menu>
           <Fade bottom delay={900}>
             <Menuburger>
@@ -135,7 +150,7 @@ const Navbar = () => {
               <StyledLink
                 to='/'
                 activeClassName='active'
-                activeStyle={{ fontWeight: 'bold', color: '#f50057' }}
+                activeStyle={{ fontWeight: 'bold', color: '#E05215' }}
               >
                 Home
               </StyledLink>
@@ -144,7 +159,7 @@ const Navbar = () => {
               <StyledLink
                 to='/projects'
                 activeClassName='active'
-                activeStyle={{ fontWeight: 'bold', color: '#f50057' }}
+                activeStyle={{ fontWeight: 'bold', color: '#E05215' }}
               >
                 Blog
               </StyledLink>
@@ -153,7 +168,7 @@ const Navbar = () => {
               <StyledLink
                 to='/events'
                 activeClassName='active'
-                activeStyle={{ fontWeight: 'bold', color: '#f50057' }}
+                activeStyle={{ fontWeight: 'bold', color: '#E05215' }}
               >
                 Events
               </StyledLink>
@@ -162,7 +177,7 @@ const Navbar = () => {
               <StyledLink
                 to='/activites'
                 activeClassName='active'
-                activeStyle={{ fontWeight: 'bold', color: '#f50057' }}
+                activeStyle={{ fontWeight: 'bold', color: '#E05215' }}
               >
                 Activites
               </StyledLink>
@@ -171,7 +186,7 @@ const Navbar = () => {
               <StyledLink
                 to='/members'
                 activeClassName='active'
-                activeStyle={{ fontWeight: 'bold', color: '#f50057' }}
+                activeStyle={{ fontWeight: 'bold', color: '#E05215' }}
               >
                 Members
               </StyledLink>
@@ -180,7 +195,7 @@ const Navbar = () => {
               <StyledLink
                 to='/#about'
                 activeClassName='active'
-                activeStyle={{ fontWeight: 'bold', color: '#f50057' }}
+                activeStyle={{ fontWeight: 'bold', color: '#E05215' }}
               >
                 About
               </StyledLink>

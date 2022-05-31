@@ -148,15 +148,17 @@ export default function IndexPage() {
 
       <GalleryImage />
       <Layout>
-        <div>
-          <AboutUs />
-        </div>
+        
         <div style={mystyle}>
           <div data-aos='zoom-in-up'>
             <Carousel>
               <PhotoCarousel />
             </Carousel>
-          </div></div>
+          </div>
+        </div>
+        <div>
+          <AboutUs />
+        </div>
       </Layout>
       <Footer />
     </>

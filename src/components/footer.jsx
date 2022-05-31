@@ -14,7 +14,7 @@ import styled from 'styled-components'
 
 const Footer = styled.div`
   .site-footer {
-    background-color: #0f292f;
+    background-color: #0F1117;
     padding: 20px 0 12px;
     font-size: 15px;
     line-height: 24px;
@@ -181,7 +181,7 @@ const footer = () => {
               members personally or 📧 us at{' '}
               <strong>
                 <a
-                  style={{ color: '#f50057' }}
+                  style={{ color: '#E05215' }}
                   href='mailto:teamiste@gmail.com'
                 >
                   teamiste@gmail.com

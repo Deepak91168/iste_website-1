@@ -6,12 +6,11 @@ import Fade from 'react-reveal/Fade'
 
 const About = styled.div`
   color: white;
-  border: 2px solid rgba(108, 50, 224, 0.3);
-  backdrop-filter: blur(20px);
+  border: 2px solid #E05215;
   border-radius: 10px;
   padding: 1rem 1rem;
   margin: 2rem 1rem;
-  box-shadow: 0 40px 40px rgba(10, 10, 10, 0.6);
+  box-shadow: 0 20px 20px #C16F49;
   h1 {
     color: #fff;
     margin: 1rem 0;

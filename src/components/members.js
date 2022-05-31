@@ -5,6 +5,10 @@ import styled from "styled-components"
 import iste_logo from "../images/albert.jpeg"
 import Bounce from 'react-reveal/Bounce';
 
+
+
+
+
 const FlexContainer = styled.div`
   position:absolute;
   top:8vh;
@@ -55,7 +59,7 @@ const Flex = styled.div`
       margin-top:5vh;
     }
     h1 {
-      color: white;
+      color: #E05215;
       text-align: center;
       @media screen and (min-width:1177px){
         transform: rotate(-90deg);
@@ -109,7 +113,7 @@ const Flex = styled.div`
         width:100%;
         background:black;
         text-align:center;
-        background: rgb(0, 41, 107);
+        background: rgba(196, 196, 196, 0.14);
         box-shadow: 7px 8px 20px 5px rgba(0, 0, 0, 0.5);
         @media screen and (min-width:1178px){
           height:27vh;
@@ -130,7 +134,7 @@ const Flex = styled.div`
           }
         }
         h3{
-          color: #E52E71;
+          color: #E05215;
           font-size: 1.5vw;
           @media screen and (max-width:1177px){
             font-size:3vw;
@@ -204,7 +208,7 @@ const Flex = styled.div`
           flex:none;
           border-radius:30px 0 0 30px;
           padding:1.2vw;
-          background: #E52E71;
+          background: #E05215;
           width:20%;
           width:fit-content;
           .social_links{
@@ -223,7 +227,7 @@ const Flex = styled.div`
             margin:40px 20px 40px 40px;
             text-align:right;
             h3{
-              color:#E52E71;
+              color:#E05215;
             }
             @media screen and (max-width:1105px){
               margin-right:30px;

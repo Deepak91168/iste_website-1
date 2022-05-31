@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const Tag = styled.div`
-    color: #501f3a;
+    color: #E05215;
 	margin-bottom: 1em;
     font-size: 1.8rem;
     font-family: 'Work Sans',sans-serif;

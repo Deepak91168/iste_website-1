@@ -34,7 +34,7 @@ const CardDiv = styled.div`
   }
   .text {
     display: flex;
-    background: rgba(4, 39, 212, 0.5);
+    background: #E3622A70;
     flex: none;
     width: 60%;
     border-radius: 20px;
@@ -62,7 +62,7 @@ const CardDiv = styled.div`
     display: flex;
     width: max-content;
     .tag {
-      background-image: linear-gradient(45deg, rgba(34,137,195,1) 25%, rgba(203,125,94,1) 86%);
+      background-image: linear-gradient(45deg, #E05215 25%, #E6703D 86%);
       border-radius: 20px;
       margin: 5px;
       padding: 10px;
@@ -84,7 +84,7 @@ const CardDiv = styled.div`
     text-align: justify;
     font-size:25px;
     padding:40px 20px 40px 20px;
-    background: rgba(4, 39, 212, 0.2);
+    background: #EA895F70;
     border-radius:20px;
     @media screen and (max-width:1536px){
       border-radius: 0 0 20px 20px;
@@ -93,6 +93,9 @@ const CardDiv = styled.div`
     @media screen and (max-width:500px){
       border-radius: 0 0 20px 20px;
       font-size:4vw;
+    }
+    a{
+      color:#E6703D;
     }
   }
   &:hover {

@@ -12,6 +12,9 @@ import Footer from "../components/footer"
 const Container = styled.div`
   color: white;
   border-radius: 20px;
+  a{
+    color:#000!important;
+  }
   .links {
 
     .link {
@@ -43,7 +46,7 @@ const Container = styled.div`
       margin: 10px, 10px, 10px, 10px;
     }
     .Image {
-      background: rgba(108, 50, 224, 0.3);
+      background: #E3622A;
       border-radius:20px;
       z-index: 2;
       flex:none;
@@ -73,7 +76,7 @@ const Container = styled.div`
     }
   }
   .EventContent {
-    background: rgba(4, 39, 212, 0.5);
+    background: #EA895F70;
     border-radius: 20px;
     padding:20px;
     margin-left:-3px;
@@ -123,7 +126,6 @@ export default function Events() {
     <>
     <Layout>
       <SEO title="Members" />
-      {/* <h1 style={{color: 'white'}}>Our Initiatives</h1> */}
       {data.map(({ node }) => (
         <Container>
           <div data-aos="fade-right">
