@@ -33,11 +33,6 @@ const Flex = styled.div`
   height:97vh;
   box-shadow: 2px 20px 38px rgba(0,0,0,0.30);
 
-  @media screen and (min-width:1178px){
-    scroll-snap-align: center;
-    flex-direction: row;
-  }
-
   @media screen and (max-width:1177px){
     display:block!important;
   }
@@ -518,10 +513,10 @@ export default function Members() {
           </div>
         </div>
         <div className="selected_member_desc">
-          <div className="selected_member_img">
+          {/* <div className="selected_member_img">
             {" "}
             <img src={props.img} alt={props.name}></img>
-          </div>
+          </div> */}
           <div className="social_handle">
             <div className="social_links">
               <div className="linkedin">

@@ -105,9 +105,10 @@ export default function GalleryImage() {
         // }
 
         var gal_css = {
-            width: '' + img_width + '%',
-            marginTop: '' + margTop + '%',
-            height: '100%',
+            // width: '' + img_width + '%',
+            // marginTop: '' + margTop + '%',
+            // height: '100%',
+            width:'600px',
             animationName: 'moving' + j,
             animationDuration: '' + delay + 's',
             animationIterationCount: 'infinite',

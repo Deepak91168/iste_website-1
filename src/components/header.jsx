@@ -56,6 +56,7 @@ const Navmenu = styled.div`
 const Menu = styled.div`
   width: 50vw;
   height: 100vh;
+  left:0;
   z-index: +999;
   backdrop-filter: blur(20px);
   @media screen and (max-width:700px){  
@@ -63,7 +64,7 @@ const Menu = styled.div`
   }
   ul {
     text-align: center;
-    padding-top: 15vh;
+    padding-top: 25vh;
   }
 `
 const Menuburger = styled.div`
@@ -157,7 +158,7 @@ const Navbar = () => {
                 Events
               </StyledLink>
             </Bounce>
-            <Bounce right delay={160}>
+            {/* <Bounce right delay={160}>
               <StyledLink
                 to='/activites'
                 activeClassName='active'
@@ -165,7 +166,7 @@ const Navbar = () => {
               >
                 Activites
               </StyledLink>
-            </Bounce>
+            </Bounce> */}
             <Bounce right delay={180}>
               <StyledLink
                 to='/members'
@@ -173,15 +174,6 @@ const Navbar = () => {
                 activeStyle={{ fontWeight: 'bold', color: '#f50057' }}
               >
                 Members
-              </StyledLink>
-            </Bounce>
-            <Bounce right delay={200}>
-              <StyledLink
-                to='/alumni'
-                activeClassName='active'
-                activeStyle={{ fontWeight: 'bold', color: '#f50057' }}
-              >
-                Alumni
               </StyledLink>
             </Bounce>
             <Bounce right delay={220}>
