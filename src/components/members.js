@@ -59,7 +59,7 @@ const Flex = styled.div`
       margin-top:5vh;
     }
     h1 {
-      color: #E05215;
+      color: rgba(108, 50, 224, 0.8);
       text-align: center;
       @media screen and (min-width:1177px){
         transform: rotate(-90deg);
@@ -127,14 +127,14 @@ const Flex = styled.div`
           width:100%;
         }
         h1{
-          color: rgb(189, 189, 189);
+          color: white;
           font-size: 2.5vw;
           @media screen and (max-width:1177px){
             font-size:4vw;
           }
         }
         h3{
-          color: #E05215;
+          color: rgba(108, 50, 224, 0.7);
           font-size: 1.5vw;
           @media screen and (max-width:1177px){
             font-size:3vw;
@@ -208,7 +208,7 @@ const Flex = styled.div`
           flex:none;
           border-radius:30px 0 0 30px;
           padding:1.2vw;
-          background: #E05215;
+          background: rgba(108, 50, 224, 0.7);
           width:20%;
           width:fit-content;
           .social_links{
@@ -227,7 +227,7 @@ const Flex = styled.div`
             margin:40px 20px 40px 40px;
             text-align:right;
             h3{
-              color:#E05215;
+              color:rgba(108, 50, 224, 0.8);
             }
             @media screen and (max-width:1105px){
               margin-right:30px;
@@ -236,7 +236,7 @@ const Flex = styled.div`
           .desc{
             p{
               width:80%;
-              color:#fff;
+              color:#ffff;
               margin:auto;
               margin-top:1vw;
               text-align:justify;

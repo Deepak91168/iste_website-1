@@ -11,31 +11,34 @@ import ISTE_Logo from '../images/iste_logo_hollow.svg'
 import Bounce from 'react-reveal/Bounce'
 
 const StyledLink = styled(Link)`
-  display: block;
   width: 80%;
-  font-size: 2vw;
+  font-size: 1.8vw;
   text-decoration: none;
   color: white;
-  padding: 2%;
+  padding: 1.8%;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
   display: inline-block;
-  transition: all 0.3s ease;  
+  border-radius: 10px 10px 0px 0px;
+  /* border: 1px solid white; */
+  /* border:1px solid white; */
   @media screen and (max-width:1356px){
     font-size:40px;
   }
   &::before {
-    position: absolute;
+    /* position: absolute;
     content: ' ';
     z-index: -1;
     width: 25%;
     top: 50%;
     left: -15%;
-    height: 2px;
-    background: #E05215;
-    transition: all 0.3s ease;
+    height: 1px;
+    /* background:#161516; */
+    /* background: #E05215; */
+    background: rgba(108, 50, 224, 0.3);
+    transition: all 0.3s ease; */
   }
 
   &:hover:before {
@@ -43,8 +46,10 @@ const StyledLink = styled(Link)`
   }
   transition: 0.2s;
   &:hover {
-    color: #fff;
-    background: #E0521550;
+    /* background: #E0521550; */
+    /* background:#161516; */
+    background: rgba(22, 21, 22, 0.8);
+    border-bottom: 0.5px solid rgba(108, 50, 224, 0.6);
     color: #fff;
   }
 `
@@ -54,12 +59,15 @@ const Navmenu = styled.div`
   left: 0;
 `
 const Menu = styled.div`
-  width: 50vw;
+  font-size: 1vw;
+  width: 40vw;
   height: 100vh;
   left:0;
-  z-index: +999;
-  backdrop-filter: blur(50px);
-  box-shadow: 0 30px 40px rgba(0,0,0,1);
+  z-index: 99;
+  /* border: 2px solid white; */
+  background-color: rgba(22, 21, 22, 0.7);
+  backdrop-filter: blur(10px);
+  /* box-shadow: 0 30px 40px rgba(0,0,0,1); */
   @media screen and (max-width:700px){  
     width: 100vw;
   }
@@ -123,7 +131,7 @@ z-index:-1;
 const Navbar = () => {
   const [isOpen, setOpen] = useState(false)
 
-  function clicked(){
+  function clicked() {
     setOpen(!isOpen)
   }
 
@@ -150,7 +158,7 @@ const Navbar = () => {
               <StyledLink
                 to='/'
                 activeClassName='active'
-                activeStyle={{ fontWeight: 'bold', color: '#E05215' }}
+                activeStyle={{ fontWeight: 'bold', color: 'rgba(108, 50, 224, 0.7)' }}
               >
                 Home
               </StyledLink>
@@ -159,7 +167,7 @@ const Navbar = () => {
               <StyledLink
                 to='/projects'
                 activeClassName='active'
-                activeStyle={{ fontWeight: 'bold', color: '#E05215' }}
+                activeStyle={{ fontWeight: 'bold', color: 'rgba(108, 50, 224, 0.7)' }}
               >
                 Blog
               </StyledLink>
@@ -168,7 +176,7 @@ const Navbar = () => {
               <StyledLink
                 to='/events'
                 activeClassName='active'
-                activeStyle={{ fontWeight: 'bold', color: '#E05215' }}
+                activeStyle={{ fontWeight: 'bold', color: 'rgba(108, 50, 224, 0.7)' }}
               >
                 Events
               </StyledLink>
@@ -186,7 +194,7 @@ const Navbar = () => {
               <StyledLink
                 to='/members'
                 activeClassName='active'
-                activeStyle={{ fontWeight: 'bold', color: '#E05215' }}
+                activeStyle={{ fontWeight: 'bold', color: 'rgba(108, 50, 224, 0.7)' }}
               >
                 Members
               </StyledLink>
@@ -195,7 +203,7 @@ const Navbar = () => {
               <StyledLink
                 to='/#about'
                 activeClassName='active'
-                activeStyle={{ fontWeight: 'bold', color: '#E05215' }}
+                activeStyle={{ fontWeight: 'bold', color: 'rgba(108, 50, 224, 0.7)' }}
               >
                 About
               </StyledLink>
@@ -227,7 +235,7 @@ const Navbar = () => {
     <div className='Navbar' style={{ zIndex: '+1000' }}>
       <span className='nav-logo'>
         <Link style={{ textDecoration: 'none', color: 'white' }} to='/'>
-          {!isOpen ? <ImgLogo src={ISTE_Logo} />:<></>}
+          {!isOpen ? <ImgLogo src={ISTE_Logo} /> : <></>}
         </Link>
       </span>
       <Hamburger

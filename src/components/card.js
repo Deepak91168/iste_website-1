@@ -34,11 +34,15 @@ const CardDiv = styled.div`
   }
   .text {
     display: flex;
-    background: #E3622A70;
+    /* background: #E3622A70; */
+    background: rgba(108, 50, 224, 0.45);
     flex: none;
     width: 60%;
     border-radius: 20px;
-    box-shadow: 0 20px 20px rgba(10, 20, 10, 0.5);
+    /* box-shadow: 0 20px 20px rgba(10, 20, 10, 0.5); */
+    box-shadow: 19px 8px 80px 30px rgba(0,0,0,0.75);
+-webkit-box-shadow: 19px 8px 80px 30px rgba(0,0,0,0.75);
+-moz-box-shadow: 19px 8px 80px 30px rgba(0,0,0,0.75);
     @media only screen and (max-width: 1536px) {
       width:100%;
       border-radius:20px 20px 0 0;
@@ -84,7 +88,8 @@ const CardDiv = styled.div`
     text-align: justify;
     font-size:25px;
     padding:40px 20px 40px 20px;
-    background: #EA895F70;
+    /* background: #EA895F70; */
+    background:rgba(108, 50, 224,0.35);
     border-radius:20px;
     @media screen and (max-width:1536px){
       border-radius: 0 0 20px 20px;
@@ -105,35 +110,35 @@ const CardDiv = styled.div`
 `;
 
 const Card = ({ frontmatter, excerpt, slug }) => {
-	return (
-		<CardDiv>
-			<Link to={slug} style={{ textDecoration: "none" }} className="Links">
-				<div className="text">
-					{frontmatter.featuredImage.childImageSharp && (
-						<BannerImage
-							fluid={frontmatter.featuredImage.childImageSharp.fluid}
-							alt="Banner Image"
-						/>
-					)}
-					<div className="header">
-						<div className="title">{frontmatter.title}</div>
-						<div className="date">{frontmatter.date}</div>
-						<div className="tags">
-							{frontmatter.tags.map(tag => (
-								<Link
-									to={"/tags/" + kebabCase(tag)}
-									style={{ textDecoration: "none", color: "white" }}
-								>
-									<div className="tag">{tag}</div>
-								</Link>
-							))}
-						</div>
-					</div>
-				</div>
-				<div className="excerpt">{excerpt}<a>Read More</a></div>
-			</Link>
-		</CardDiv>
-	);
+  return (
+    <CardDiv>
+      <Link to={slug} style={{ textDecoration: "none" }} className="Links">
+        <div className="text">
+          {frontmatter.featuredImage.childImageSharp && (
+            <BannerImage
+              fluid={frontmatter.featuredImage.childImageSharp.fluid}
+              alt="Banner Image"
+            />
+          )}
+          <div className="header">
+            <div className="title">{frontmatter.title}</div>
+            <div className="date">{frontmatter.date}</div>
+            <div className="tags">
+              {frontmatter.tags.map(tag => (
+                <Link
+                  to={"/tags/" + kebabCase(tag)}
+                  style={{ textDecoration: "none", color: "white" }}
+                >
+                  <div className="tag">{tag}</div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="excerpt">{excerpt}<a>Read More</a></div>
+      </Link>
+    </CardDiv>
+  );
 };
 
 export default Card;

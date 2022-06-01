@@ -8,8 +8,12 @@ const Marquee = styled.div`
     width:70%;
     margin-left:15%;
     overflow:hidden;
-    border:3px solid gray;
-    border-radius:20px;
+    /* border:1px solid #E05215; */
+    border: 3px solid #260240;
+    border-radius:10px;
+    -webkit-box-shadow: 0px 4px 88px 0px rgba(0,0,0,0.99);
+    -moz-box-shadow: 0px 4px 88px 0px rgba(0,0,0,0.99);
+    box-shadow: 0px 4px 88px 0px rgba(0,0,0,0.99);
 `
 
 const GalImage = styled.div`

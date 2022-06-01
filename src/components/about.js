@@ -6,11 +6,14 @@ import Fade from 'react-reveal/Fade'
 
 const About = styled.div`
   color: white;
-  border: 2px solid #E05215;
+  border: 2px solid #260240;
+  /* border: 2px solid #E05215; */
   border-radius: 10px;
   padding: 1rem 1rem;
   margin: 2rem 1rem;
-  box-shadow: 0 20px 20px #C16F49;
+  -webkit-box-shadow: 0px 4px 88px 0px rgba(0,0,0,0.99);
+  -moz-box-shadow: 0px 4px 88px 0px rgba(0,0,0,0.99);
+  box-shadow: 0px 4px 88px 0px rgba(0,0,0,0.99);
   h1 {
     color: #fff;
     margin: 1rem 0;
@@ -25,7 +28,7 @@ const About = styled.div`
     ${"" /* border: 2px solid blue; */}
     .Image {
       width: 50%;
-      border: 1px solid rgba(108, 50, 224, 0.3);
+      border: 2px solid rgba(108, 50, 224, 0.3);
       border-radius: 10px;
       margin: auto;
       box-shadow: 0 20px 20px rgba(10, 10, 10, 0.4);
