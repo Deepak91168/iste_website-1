@@ -1,105 +1,95 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.gatsbyjs.com">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby's default starter
-</h1>
+<p align='center'>
+  <img src="src/images/iste_logo_hollow.svg" alt="ISTE LOGO">
+  </p>
+<h1 align='center'>STE 2020 website</h1>
 
-Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+For a details list of all the desired features refer to [this discussion](https://github.com/orgs/istenith/teams/web-dev/discussions/1)
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.com/docs/gatsby-starters/)._
+## Setting Up
+- Install `npm`
+    Ubuntu\Debian:
+    `sudo apt install npm`
+    Arch:
+    `sudo pacman -S npm nodejs-lts-gallium`
 
-## 🚀 Quick start
+- Install Gatsby
+    `sudo npm install gatsby-cli`
 
-1.  **Create a Gatsby site.**
+- clone this repository
+    `https://github.com/istenith/istenith.github.io.git`
 
-    Use the Gatsby CLI ([install instructions](https://www.gatsbyjs.com/docs/tutorial/part-0/#gatsby-cli)) to create a new site, specifying the default starter.
+- `cd istenith.github.io`
 
-    ```shell
-    # create a new Gatsby site using the default starter
-    gatsby new my-default-starter https://github.com/gatsbyjs/gatsby-starter-default
-    ```
+- Install all the dependencies
+    `npm install`
 
-1.  **Start developing.**
+- Run a Development server
+    `gatsby develop`
+    the server runs on port:8000 access it from your browser at:
+    `https:\\localhost:8000`
+    for GraphQl editor:
+    `https:\\localhost:8000\__graphql`
 
-    Navigate into your new site’s directory and start it up.
+## Folder Structure
+`````````````
+|-- LICENSE
+|-- README.md
+|-- content           ------>this folder contains the .md files
+|   |-- about.md
+|   |-- media
+|   |   |-- horses.jpg
+|   |   `-- meme.jpg
+|   `-- projects
+|       |-- graphics-card.md
+|       `-- lost-lander.md
+|-- gatsby-browser.js
+|-- gatsby-config.js  ------>main Gatsby config file define ur plugins here
+|-- gatsby-node.js    ------>Gatsby Node API for making slugs and linking Templates  
+|-- gatsby-ssr.js
+|-- package-lock.json
+|-- package.json
+`-- src
+    |-- components    ------>Folder to contain all the react components
+    |   |-- header.js
+    |   |-- header.module.scss
+    |   |-- layout.js
+    |   |-- projects.js
+    |   `-- seo.js
+    |-- images        ------>For images to be used in the website
+    |   `-- iste-logo-blue.png
+    |-- pages         ------>Put all the pages you define here  
+    |   |-- 404.js
+    |   |-- index.js
+    |   `-- page-2.js
+    |-- templates     ------>Template for rendering the .md files
+    |   `-- project.js
+    `-- utils         ------>Typography library settings
+        `-- typography.js
+```
 
-    ```shell
-    cd my-default-starter/
-    gatsby develop
-    ```
+## Contributing
+Fork this repository and clone it as mentioned above
+Create a new branch whenever you want to add a new feature and file a PR from that branch only. If the PR is accepted then delete that from locally and rebase your master branch with upstream:
+in the master branch:
+`git pull upstream --rebase master`
 
-1.  **Open the source code and start editing!**
+## Styling
+The project is currently set up to support both CSS ans SASS. It is strongly recommended to use SASS always.
+Use inline styling fot components if you can get away with it but feel free to make a separate SASS module and import it into your component.
+Try not to duplicate the style properties use the power of inheritance!
 
-    Your site is now running at `http://localhost:8000`!
+Typography.js takes care of the fonts throughout the website see `src/utils/typography.js`. Predefined themes are also available for moe information refer to the [docs](https://kyleamathews.github.io/typography.js/)!
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby Tutorial](https://www.gatsbyjs.com/docs/tutorial/part-4/#use-graphiql-to-explore-the-data-layer-and-write-graphql-queries)._
 
-    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+## Troubleshooting
+I have not encountered any major error till now except this one
+`Internal watch failed: ENOSPC: System limit for number of file watchers reached`
 
-## 🚀 Quick start (Gatsby Cloud)
+Fix: `sudo echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p`
 
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
+Since this occurred fairly often I made an alias for this in my `.zshrc`
 
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-default)
+## Tutorials
+The [Official Gatsby Documentation](https://www.gatsbyjs.org/tutorial/) is the best resource for getting started with Gatsby and understand the basics.
 
-## 🧐 What's inside?
-
-A quick look at the top-level files and directories you'll see in a Gatsby project.
-
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── .prettierrc
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package-lock.json
-    ├── package.json
-    └── README.md
-
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
-
-2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
-
-3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
-
-4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
-
-5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
-
-6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/) for more detail).
-
-7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
-
-8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
-
-9.  **`LICENSE`**: This Gatsby starter is licensed under the 0BSD license. This means that you can see this file as a placeholder and replace it with your own license.
-
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
-
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
-
-12. **`README.md`**: A text file containing useful reference information about your project.
-
-## 🎓 Learning Gatsby
-
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.com/). Here are some places to start:
-
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.com/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
-
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.com/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
-
-## 💫 Deploy
-
-[Build, Deploy, and Host On The Only Cloud Built For Gatsby](https://www.gatsbyjs.com/products/cloud/)
-
-Gatsby Cloud is an end-to-end cloud platform specifically built for the Gatsby framework that combines a modern developer experience with an optimized, global edge network.
-
-<!-- AUTO-GENERATED-CONTENT:END -->
+[The Great Gatsby Boot-Camp](https://www.youtube.com/watch?v=8t0vNu2fCCM&t=11105s)
