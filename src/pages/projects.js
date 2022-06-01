@@ -9,7 +9,8 @@ import "aos/dist/aos.css";
 
 
 const Search = styled.input`
-  background: #EA895F70;
+  /* background: #EA895F70; */
+  background: rgba(108, 50, 224, 0.2);
   padding: 1rem;
   width: 50%;
   height: 35px;
@@ -18,7 +19,7 @@ const Search = styled.input`
   color: white;
   font-family: Roboto;
   transition : 0.2s ease-in;
-  border: 1px solid #EA895F;
+  border: 1px solid rgba(108, 50, 224, 0.4);
   &:focus, &:hover{
     box-shadow: none;
     background: rgba(108, 50, 224, 0.3);

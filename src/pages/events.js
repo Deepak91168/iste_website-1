@@ -46,7 +46,7 @@ const Container = styled.div`
       margin: 10px, 10px, 10px, 10px;
     }
     .Image {
-      background: #E3622A;
+      background: rgba(108, 50, 224, 0.55);
       border-radius:20px;
       z-index: 2;
       flex:none;
@@ -76,7 +76,7 @@ const Container = styled.div`
     }
   }
   .EventContent {
-    background: #EA895F70;
+    background: rgba(108, 50, 224, 0.45);
     border-radius: 20px;
     padding:20px;
     margin-left:-3px;
