@@ -3,8 +3,6 @@
   </p>
 <h1 align='center'>ISTE NITH</h1>
 
-For a details list of all the desired features refer to [this discussion](https://github.com/orgs/istenith/teams/web-dev/discussions/1)
-
 ## Setting Up
 - Install `npm`
     Ubuntu\Debian:
