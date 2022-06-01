@@ -29,7 +29,7 @@
     `https:\\localhost:8000\__graphql`
 
 ## Folder Structure
-`````````````
+```
 |-- LICENSE
 |-- README.md
 |-- content           ------>this folder contains the .md files
@@ -64,6 +64,7 @@
     `-- utils         ------>Typography library settings
         `-- typography.js
 ```
+
 
 ## Contributing
 Fork this repository and clone it as mentioned above
