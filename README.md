@@ -1,8 +1,7 @@
 <p align='center'>
   <img src="src/images/iste_logo_hollow.svg" alt="ISTE LOGO">
   </p>
-<h1 align='center'>ISTE NITH</h1>
-<h3 align='center'>official website</h3>
+<h1 align='center'>ISTE NITH</h1><h3 align='center'>official website</h3>
 
 For a details list of all the desired features refer to [this discussion](https://github.com/orgs/istenith/teams/web-dev/discussions/1)
 
